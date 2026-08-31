@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Practice Lab | DataAnalystTheta 2.0</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0693E3',
+            brandBlueDark: '#032656',
+            brandPurple: '#7D077D',
+            lightBg: '#F8FAFC',
+            cardBg: '#FFFFFF',
+            textMain: '#2B161B',
+            textMuted: '#453E3E',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-lightBg text-textMain min-h-screen flex flex-col font-sans pb-24">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 z-50 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
+          θ
+        </div>
+        <span class="font-bold text-xl tracking-tight text-brandBlueDark">
+          DataAnalyst<span class="text-brandBlue">Theta</span>
+        </span>
+      </a>
+
+      <!-- Navigation links -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-textMuted">
+        <a href="../index.html" class="nav-link-btn hover:text-brandBlue transition-colors">Home</a>
+        <a href="../dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors">Dashboard</a>
+        <a href="../practice.html" class="nav-link-btn text-brandBlue border-b-2 border-brandBlue">Practice Portal</a>
+        <a href="../challenges.html" class="nav-link-btn hover:text-brandBlue transition-colors">Challenges</a>
+        <a href="../interview.html" class="nav-link-btn hover:text-brandBlue transition-colors">Interview Prep</a>
+        <a href="../analytics.html" class="nav-link-btn hover:text-brandBlue transition-colors">Analytics</a>
+        <a href="../resources.html" class="nav-link-btn hover:text-brandBlue transition-colors">Free Resources</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-4">
+        <a href="../dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
+          Workspace Dashboard
+        </a>
+        <a href="../profile.html" class="flex items-center gap-2 cursor-pointer">
+          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LAB BODY -->
+  <main class="flex-grow pt-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
+    
+    <div class="flex items-center justify-between border-b pb-4">
+      <div>
+        <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">PRACTICE LABS</span>
+        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">📊 Excel Formulas Workbench</h2>
+      </div>
+      <a href="../practice.html" class="text-xs text-textMuted hover:text-brandBlue font-bold">← Return to Hub</a>
+    </div>
+
+    <!-- Active Tasks panel -->
+    <div class="bg-blue-50 border border-brandBlue/20 rounded-2xl p-5 space-y-2">
+      <span class="px-2 py-0.5 rounded bg-brandBlue text-white text-[9px] font-bold uppercase tracking-wider">ACTIVE TASK</span>
+      <h3 class="font-bold text-sm text-brandBlueDark" id="task-title">Loading...</h3>
+      <p class="text-xs text-gray-600 leading-relaxed font-mono" id="task-desc">Loading instructions...</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column (Excel Sheet preview) -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-4">
+          <span class="text-xs text-brandBlueDark font-bold uppercase tracking-wider block border-b pb-2">Spreadsheet Grid Preview</span>
+          
+          <div class="overflow-x-auto w-full border rounded-lg text-[9px] font-mono text-gray-500">
+            <table class="min-w-full divide-y divide-gray-200 text-left border-collapse">
+              <thead class="bg-gray-150 font-bold">
+                <tr>
+                  <th class="px-2 py-1.5 border bg-gray-250">Row/Col</th>
+                  <th class="px-2 py-1.5 border">A (Product)</th>
+                  <th class="px-2 py-1.5 border">B (Category)</th>
+                  <th class="px-2 py-1.5 border">C (Revenue)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-2 py-1 border bg-gray-50 font-bold">1</td>
+                  <td class="px-2 py-1 border text-gray-700">Laptop</td>
+                  <td class="px-2 py-1 border text-gray-700">Electronics</td>
+                  <td class="px-2 py-1 border text-gray-700">1200</td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-1 border bg-gray-50 font-bold">2</td>
+                  <td class="px-2 py-1 border text-gray-700">Keyboard</td>
+                  <td class="px-2 py-1 border text-gray-700">Electronics</td>
+                  <td class="px-2 py-1 border text-gray-700">150</td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-1 border bg-gray-50 font-bold">3</td>
+                  <td class="px-2 py-1 border text-gray-700">Chair</td>
+                  <td class="px-2 py-1 border text-gray-700">Office</td>
+                  <td class="px-2 py-1 border text-gray-700">450</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Hints -->
+        <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-3">
+          <h4 class="font-bold text-xs text-brandBlueDark uppercase tracking-wider">💡 Formulas Hints</h4>
+          <div class="space-y-2 text-xs">
+            <details class="border rounded p-2.5 bg-gray-50/50 cursor-pointer select-none">
+              <summary class="font-bold text-[10px] text-gray-600">Formula Syntax Guide</summary>
+              <p class="mt-2 text-gray-500 font-mono text-[10px]" id="hint-1">Remember to start with an equals sign (=) and capitalization.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (Formula Editor & feedback) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Formula Input Editor -->
+        <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-4">
+          <h3 class="font-bold text-xs text-brandBlueDark uppercase tracking-wider border-b pb-2">Formula Input Panel</h3>
+          
+          <input type="text" id="formula-input" class="w-full p-4 font-mono text-xs border rounded-2xl bg-gray-950 text-emerald-400 focus:ring-1 focus:ring-brandBlue outline-none" placeholder="=XLOOKUP(A1, B:B, C:C)">
+          
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-[9px] text-gray-400 font-mono">Formulas must match exact syntax</span>
+            <div class="flex items-center gap-3">
+              <button onclick="resetFormula()" class="px-4 py-2 border rounded-lg text-xs font-bold hover:bg-gray-50 transition-all text-textMuted">Reset</button>
+              <button onclick="checkFormula()" class="px-5 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-lg shadow-md transition-all">Verify Formula</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Validation Output console -->
+        <div class="bg-gray-950 p-5 rounded-3xl border border-gray-800 text-emerald-400 font-mono text-xs min-h-[140px] flex flex-col justify-between">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2 text-[10px] text-gray-500">
+            <span>FORMULA VERIFICATION CONSOLE</span>
+            <span class="text-[9px] text-emerald-500 font-bold" id="verify-status">READY</span>
+          </div>
+          <div id="verify-output" class="my-4 whitespace-pre-wrap leading-relaxed text-[10px] text-gray-300">
+            Console: Waiting for formula verification...
+          </div>
+          <div class="text-[9px] text-gray-500 text-right">
+            Client-Side syntax audit logic
+          </div>
+        </div>
+
+        <!-- Submit & Reward Panel -->
+        <div class="bg-white p-5 rounded-3xl border shadow-sm flex items-center justify-between">
+          <div class="text-xs">
+            <span class="text-[10px] text-gray-400 font-bold block uppercase">Earnable rewards</span>
+            <span class="font-bold text-brandPurple">+15 XP &middot; +5.0 Excel LT</span>
+          </div>
+          <button onclick="submitExcelAnswer()" id="btn-submit-lab" class="px-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-lg shadow-md transition-all">
+            Submit Solution
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Include Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/practice-engine.js"></script>
+  <script>
+    const excelChallenges = [
+      {
+        id: "ex_ch_01",
+        title: "Lookup Product Category with XLOOKUP",
+        description: "Write a formula in cell B1 to lookup the value of cell A1 (Product name) in range A2:A100 and return the category in range B2:B100.",
+        expectedFormula: "=XLOOKUP(A1, A2:A100, B2:B100)",
+        hint: "Formulas in Excel must start with '='. Match arguments: XLOOKUP(lookup_value, lookup_array, return_array)."
+      },
+      {
+        id: "ex_ch_02",
+        title: "Sum Category Revenues with SUMIFS",
+        description: "Write a SUMIFS formula to sum the values in range C1:C100 (Revenues) where range B1:B100 (Category) matches 'Electronics'.",
+        expectedFormula: "=SUMIFS(C1:C100, B1:B100, \"Electronics\")",
+        hint: "SUMIFS syntax: =SUMIFS(sum_range, criteria_range1, criteria1). Wrap strings in double quotes."
+      }
+    ];
+
+    let activeIndex = 0;
+    let isCorrectAnswer = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadChallenge();
+    });
+
+    function loadChallenge() {
+      const ch = excelChallenges[activeIndex];
+      document.getElementById('task-title').innerText = ch.title;
+      document.getElementById('task-desc').innerText = ch.description;
+      document.getElementById('formula-input').value = '=';
+      document.getElementById('hint-1').innerText = ch.hint;
+      
+      isCorrectAnswer = false;
+      document.getElementById('verify-output').innerHTML = "Console: Waiting for formula verification...";
+      document.getElementById('verify-status').innerText = "READY";
+      document.getElementById('verify-status').className = "text-[9px] text-emerald-500 font-bold";
+    }
+
+    function resetFormula() {
+      document.getElementById('formula-input').value = '=';
+      document.getElementById('verify-output').innerText = "Console: Input reset.";
+      document.getElementById('verify-status').innerText = "READY";
+      document.getElementById('verify-status').className = "text-[9px] text-emerald-500 font-bold";
+      isCorrectAnswer = false;
+    }
+
+    function checkFormula() {
+      const input = document.getElementById('formula-input').value.trim().replace(/\s+/g, '');
+      const ch = excelChallenges[activeIndex];
+      const expected = ch.expectedFormula.replace(/\s+/g, '');
+
+      const status = document.getElementById('verify-status');
+      const output = document.getElementById('verify-output');
+
+      status.innerText = "VERIFYING...";
+      status.className = "text-[9px] text-yellow-500 font-bold";
+
+      setTimeout(() => {
+        if (input.toLowerCase() === expected.toLowerCase()) {
+          isCorrectAnswer = true;
+          output.innerHTML = `<span class="text-emerald-400 font-bold">✔ Success: Formula syntax matches expected logic!</span>\nCompiled Expression: ${ch.expectedFormula}`;
+          status.innerText = "VERIFIED";
+          status.className = "text-[9px] text-emerald-500 font-bold";
+        } else {
+          isCorrectAnswer = false;
+          output.innerHTML = `<span class="text-red-400 font-bold">✘ Warning: Formula mismatch.</span>\nExpected signature structure: ${ch.expectedFormula}\nEnsure parameter cells and quotes match.`;
+          status.innerText = "MISMATCH";
+          status.className = "text-[9px] text-red-500 font-bold";
+        }
+      }, 200);
+    }
+
+    function submitExcelAnswer() {
+      if (!isCorrectAnswer) {
+        alert("Please verify a correct formula syntax in the editor panel first!");
+        return;
+      }
+
+      playFeedbackSound(true);
+
+      if (window.confetti) {
+        confetti({
+          particleCount: 80,
+          spread: 50,
+          origin: { y: 0.6 }
+        });
+      }
+
+      recalculateAdaptiveMastery('Excel', true);
+      alert("Success! Excel formula verified. +15 XP awarded!");
+
+      activeIndex = (activeIndex + 1) % excelChallenges.length;
+      loadChallenge();
+    }
+  </script>
+</body>
+</html>

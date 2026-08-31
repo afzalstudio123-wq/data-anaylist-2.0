@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Hub Selector | DataAnalystTheta 2.0</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0693E3',
+            brandBlueDark: '#032656',
+            brandPurple: '#7D077D',
+            lightBg: '#F8FAFC',
+            cardBg: '#FFFFFF',
+            textMain: '#2B161B',
+            textMuted: '#453E3E',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-lightBg text-textMain min-h-screen flex flex-col font-sans pb-24">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 z-50 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
+          θ
+        </div>
+        <span class="font-bold text-xl tracking-tight text-brandBlueDark">
+          DataAnalyst<span class="text-brandBlue">Theta</span>
+        </span>
+      </a>
+
+      <!-- Nav link Menu -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-textMuted">
+        <a href="index.html" class="nav-link-btn" id="nav-btn-landing">Home</a>
+        <a href="dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-dashboard">Dashboard</a>
+        <a href="practice.html" class="nav-link-btn" id="nav-btn-practice">Practice Portal</a>
+        <a href="challenges.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-challenges">Challenges</a>
+        <a href="interview.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-interview">Interview Prep</a>
+        <a href="analytics.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-analytics">Analytics</a>
+        <a href="resources.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-resources">Free Resources</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-4">
+        <a href="dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
+          Workspace Dashboard
+        </a>
+        <a href="profile.html" class="flex items-center gap-2 cursor-pointer">
+          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PRACTICE HUB WRAPPER -->
+  <main class="flex-grow pt-24 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Welcome Panel and Goal state -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+      <div class="md:col-span-8 bg-gradient-to-r from-brandBlueDark to-blue-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-lg">
+        <div class="space-y-3">
+          <span class="text-xs text-brandBlue font-extrabold uppercase tracking-widest block">LearnTheta Adaptive Practice Labs</span>
+          <h2 class="text-2xl sm:text-3xl font-black leading-tight">Master Data Analytics & Placement Tests</h2>
+          <p class="text-gray-300 text-xs sm:text-sm max-w-xl leading-relaxed">
+            Choose a subject area to practice. The engine dynamically evaluates your responses to adapt question difficulty and identify weak topics.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-4 items-center border-t border-blue-800 pt-6">
+          <a href="practice/sql.html" class="px-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-full transition-all shadow-md">
+            ⚡ Quick Launch SQL Lab
+          </a>
+          <span class="text-[10px] text-blue-300 font-semibold italic">Join 10k+ candidates practicing for technical queries rounds.</span>
+        </div>
+      </div>
+
+      <!-- Quick stats / Daily goals widget -->
+      <div class="md:col-span-4 bg-white p-6 rounded-3xl border shadow-sm flex flex-col justify-between">
+        <h3 class="font-bold text-sm text-brandBlueDark uppercase tracking-wider border-b pb-2">Placement Readiness</h3>
+        <div class="space-y-4 my-4 flex-grow text-xs">
+          <!-- Readiness Gauge -->
+          <div>
+            <div class="flex justify-between font-bold text-gray-500 mb-1">
+              <span>Overall Mastery</span>
+              <span id="readiness-status" class="text-brandBlue font-extrabold">30%</span>
+            </div>
+            <div class="w-full bg-gray-150 h-2.5 rounded-full overflow-hidden">
+              <div id="readiness-gauge-bar" class="bg-brandBlue h-full transition-all duration-500" style="width: 30%;"></div>
+            </div>
+          </div>
+          
+          <!-- Daily Target -->
+          <div class="flex items-center justify-between">
+            <span class="font-semibold text-gray-500">Daily Target:</span>
+            <span class="font-mono font-bold text-brandPurple bg-purple-50 px-2 py-0.5 rounded border border-purple-100" id="practice-daily-goal">0 / 5 Solved</span>
+          </div>
+
+          <!-- Streak -->
+          <div class="flex items-center justify-between">
+            <span class="font-semibold text-gray-500">Daily Streak:</span>
+            <span class="font-bold text-orange-500" id="practice-dashboard-streak">🔥 1 Day</span>
+          </div>
+        </div>
+        <a href="analytics.html" class="w-full py-2 border border-gray-200 hover:border-brandBlue text-xs font-bold text-textMuted hover:text-brandBlue rounded-xl transition-all text-center">
+          View Weak Areas Engine
+        </a>
+      </div>
+    </div>
+
+    <!-- Curriculum Subject Card Grid -->
+    <div class="space-y-4">
+      <h3 class="font-black text-xl text-brandBlueDark flex items-center gap-2">
+        <span>📚 Choose Your Skill Subject</span>
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- SQL Lab Card -->
+        <div class="bg-white p-6 rounded-2xl border flex flex-col justify-between group hover:border-brandBlue/35 hover:shadow-md transition-all duration-300 spring-hover">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-2xl">💻</span>
+              <span class="px-2 py-0.5 rounded bg-brandBlue/10 text-brandBlue text-[10px] font-bold uppercase">Popular</span>
+            </div>
+            <h4 class="font-black text-lg text-brandBlueDark group-hover:text-brandBlue transition-colors">SQL Compiler Lab</h4>
+            <p class="text-xs text-gray-500 leading-relaxed">Master table joins, subqueries, grouping aggregates, and CTE functions with our simulated compiler engine.</p>
+          </div>
+          <div class="mt-8 pt-4 border-t flex items-center justify-between">
+            <span class="text-[10px] text-gray-400 font-semibold">Mastery: <span class="text-brandBlue font-bold" id="mastery-sql">30%</span></span>
+            <a href="practice/sql.html" class="px-4 py-2 bg-gray-50 hover:bg-brandBlue text-brandBlue hover:text-white text-xs font-bold rounded-lg transition-all shadow-sm">
+              Practice SQL →
+            </a>
+          </div>
+        </div>
+
+        <!-- Excel Lab Card -->
+        <div class="bg-white p-6 rounded-2xl border flex flex-col justify-between group hover:border-brandBlue/35 hover:shadow-md transition-all duration-300 spring-hover">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-2xl">📊</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase">Basic</span>
+            </div>
+            <h4 class="font-black text-lg text-brandBlueDark group-hover:text-brandBlue transition-colors">Excel Worksheets</h4>
+            <p class="text-xs text-gray-500 leading-relaxed">Practice index lookups, conditional aggregates (SUMIFS, COUNTIF), formatting constraints, and cleanups.</p>
+          </div>
+          <div class="mt-8 pt-4 border-t flex items-center justify-between">
+            <span class="text-[10px] text-gray-400 font-semibold">Mastery: <span class="text-brandBlue font-bold" id="mastery-excel">30%</span></span>
+            <a href="practice/excel.html" class="px-4 py-2 bg-gray-50 hover:bg-brandBlue text-brandBlue hover:text-white text-xs font-bold rounded-lg transition-all shadow-sm">
+              Practice Excel →
+            </a>
+          </div>
+        </div>
+
+        <!-- Python Lab Card -->
+        <div class="bg-white p-6 rounded-2xl border flex flex-col justify-between group hover:border-brandBlue/35 hover:shadow-md transition-all duration-300 spring-hover">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-2xl">🐍</span>
+              <span class="px-2 py-0.5 rounded bg-brandPurple/10 text-brandPurple text-[10px] font-bold uppercase">Advanced</span>
+            </div>
+            <h4 class="font-black text-lg text-brandBlueDark group-hover:text-brandBlue transition-colors">Python Wrangling</h4>
+            <p class="text-xs text-gray-500 leading-relaxed">Practice dynamic dataframe cleansing, filter parameters, two-pointers arrays sorting, and Pandas structures.</p>
+          </div>
+          <div class="mt-8 pt-4 border-t flex items-center justify-between">
+            <span class="text-[10px] text-gray-400 font-semibold">Mastery: <span class="text-brandBlue font-bold" id="mastery-python">30%</span></span>
+            <a href="practice/python.html" class="px-4 py-2 bg-gray-50 hover:bg-brandBlue text-brandBlue hover:text-white text-xs font-bold rounded-lg transition-all shadow-sm">
+              Practice Python →
+            </a>
+          </div>
+        </div>
+
+        <!-- Statistics Lab Card -->
+        <div class="bg-white p-6 rounded-2xl border flex flex-col justify-between group hover:border-brandBlue/35 hover:shadow-md transition-all duration-300 spring-hover">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-2xl">🧠</span>
+              <span class="px-2 py-0.5 rounded bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase">Core Stats</span>
+            </div>
+            <h4 class="font-black text-lg text-brandBlueDark group-hover:text-brandBlue transition-colors">Statistics & Bayes</h4>
+            <p class="text-xs text-gray-500 leading-relaxed">Practice probability distribution logic, Bayes conditional formulas, mean standard deviations, and A/B tests.</p>
+          </div>
+          <div class="mt-8 pt-4 border-t flex items-center justify-between">
+            <span class="text-[10px] text-gray-400 font-semibold">Mastery: <span class="text-brandBlue font-bold" id="mastery-statistics">30%</span></span>
+            <a href="practice/statistics.html" class="px-4 py-2 bg-gray-50 hover:bg-brandBlue text-brandBlue hover:text-white text-xs font-bold rounded-lg transition-all shadow-sm">
+              Practice Stats →
+            </a>
+          </div>
+        </div>
+
+        <!-- Power BI Card -->
+        <div class="bg-white p-6 rounded-2xl border flex flex-col justify-between group hover:border-brandBlue/35 hover:shadow-md transition-all duration-300 spring-hover">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-2xl">📊</span>
+              <span class="px-2 py-0.5 rounded bg-amber-50 text-amber-600 text-[10px] font-bold uppercase">Modeling</span>
+            </div>
+            <h4 class="font-black text-lg text-brandBlueDark group-hover:text-brandBlue transition-colors">Power BI DAX Measures</h4>
+            <p class="text-xs text-gray-500 leading-relaxed">Build core analytics schema relations, calculated columns measures, and design dashboard metrics questions.</p>
+          </div>
+          <div class="mt-8 pt-4 border-t flex items-center justify-between">
+            <span class="text-[10px] text-gray-400 font-semibold">Mastery: <span class="text-brandBlue font-bold" id="mastery-powerbi">30%</span></span>
+            <a href="practice/powerbi.html" class="px-4 py-2 bg-gray-50 hover:bg-brandBlue text-brandBlue hover:text-white text-xs font-bold rounded-lg transition-all shadow-sm">
+              Practice BI →
+            </a>
+          </div>
+        </div>
+
+        <!-- Case Studies Card -->
+        <div class="bg-white p-6 rounded-2xl border flex flex-col justify-between group hover:border-brandBlue/35 hover:shadow-md transition-all duration-300 spring-hover">
+          <div class="space-y-3">
+            <div class="flex justify-between items-start">
+              <span class="text-2xl">💼</span>
+              <span class="px-2 py-0.5 rounded bg-brandPurple/10 text-brandPurple text-[10px] font-bold uppercase">Business</span>
+            </div>
+            <h4 class="font-black text-lg text-brandBlueDark group-hover:text-brandBlue transition-colors">Enterprise Case Studies</h4>
+            <p class="text-xs text-gray-500 leading-relaxed">Solve business analyst case scenarios, aggregate cohort trends, and recommend product changes.</p>
+          </div>
+          <div class="mt-8 pt-4 border-t flex items-center justify-between">
+            <span class="text-[10px] text-gray-400 font-semibold">Data Analytics Hub</span>
+            <a href="case-studies.html" class="px-4 py-2 bg-gray-50 hover:bg-brandBlue text-brandBlue hover:text-white text-xs font-bold rounded-lg transition-all shadow-sm">
+              Launch Cases →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FLOATING MAC DOCK (Visual Shortcut Dock) -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl border border-gray-200/50 shadow-2xl flex items-center gap-6 transition-all duration-300 hover:bg-white">
+    <a href="index.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandBlue to-indigo-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🏠
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Home</span>
+    </a>
+    <a href="dashboard.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-indigo-700 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📊
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Dashboard</span>
+    </a>
+    <a href="practice.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🎯
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Practice Portal</span>
+    </a>
+    <a href="resources.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPurple to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📂
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Resources</span>
+    </a>
+  </div>
+
+  <!-- Include Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = Storage.get('user');
+      const mastery = Storage.get('mastery');
+      const streak = Storage.get('streak', { count: 1 });
+      const attempts = Storage.get('attempts', []);
+
+      // Calculate average readiness
+      const avgMastery = (mastery.sql + mastery.excel + mastery.python + mastery.statistics + mastery.powerbi) / 5;
+      document.getElementById('readiness-status').innerText = `${avgMastery.toFixed(1)}%`;
+      document.getElementById('readiness-gauge-bar').style.width = `${avgMastery}%`;
+
+      document.getElementById('practice-daily-goal').innerText = `${attempts.length} / 5 Solved`;
+      document.getElementById('practice-dashboard-streak').innerText = `🔥 ${streak.count} ${streak.count === 1 ? 'Day' : 'Days'}`;
+
+      // Update card masteries
+      const subjects = ['sql', 'excel', 'python', 'statistics', 'powerbi'];
+      subjects.forEach(sub => {
+        const score = mastery[sub] !== undefined ? mastery[sub] : 30.0;
+        const el = document.getElementById(`mastery-${sub}`);
+        if (el) el.innerText = `${score.toFixed(1)}%`;
+      });
+    });
+  </script>
+</body>
+</html>

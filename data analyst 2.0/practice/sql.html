@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL practice Lab | DataAnalystTheta 2.0</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0693E3',
+            brandBlueDark: '#032656',
+            brandPurple: '#7D077D',
+            lightBg: '#F8FAFC',
+            cardBg: '#FFFFFF',
+            textMain: '#2B161B',
+            textMuted: '#453E3E',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-lightBg text-textMain min-h-screen flex flex-col font-sans pb-24">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 z-50 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
+          θ
+        </div>
+        <span class="font-bold text-xl tracking-tight text-brandBlueDark">
+          DataAnalyst<span class="text-brandBlue">Theta</span>
+        </span>
+      </a>
+
+      <!-- Menu links -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-textMuted">
+        <a href="../index.html" class="nav-link-btn hover:text-brandBlue transition-colors">Home</a>
+        <a href="../dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors">Dashboard</a>
+        <a href="../practice.html" class="nav-link-btn text-brandBlue border-b-2 border-brandBlue">Practice Portal</a>
+        <a href="../challenges.html" class="nav-link-btn hover:text-brandBlue transition-colors">Challenges</a>
+        <a href="../interview.html" class="nav-link-btn hover:text-brandBlue transition-colors">Interview Prep</a>
+        <a href="../analytics.html" class="nav-link-btn hover:text-brandBlue transition-colors">Analytics</a>
+        <a href="../resources.html" class="nav-link-btn hover:text-brandBlue transition-colors">Free Resources</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="flex items-center gap-4">
+        <a href="../dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
+          Workspace Dashboard
+        </a>
+        <a href="../profile.html" class="flex items-center gap-2 cursor-pointer">
+          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LAB GRID WORKSPACE -->
+  <main class="flex-grow pt-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
+    
+    <!-- Title & Navigation -->
+    <div class="flex items-center justify-between border-b pb-4">
+      <div>
+        <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">PRACTICE LABS</span>
+        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">💻 Relational SQL Playground</h2>
+      </div>
+      <a href="../practice.html" class="text-xs text-textMuted hover:text-brandBlue font-bold">← Return to Hub</a>
+    </div>
+
+    <!-- Active Tasks panel -->
+    <div class="bg-blue-50 border border-brandBlue/20 rounded-2xl p-5 space-y-2">
+      <span class="px-2 py-0.5 rounded bg-brandBlue text-white text-[9px] font-bold uppercase tracking-wider">ACTIVE CHALLENGE</span>
+      <h3 class="font-bold text-sm text-brandBlueDark" id="challenge-title">Loading Challenge...</h3>
+      <p class="text-xs text-gray-600 leading-relaxed font-mono" id="challenge-desc">Loading instructions...</p>
+    </div>
+
+    <!-- Two Columns Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column (Schema preview & Hints) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Table Schemas selector -->
+        <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="text-xs text-brandBlueDark font-bold uppercase tracking-wider">Relational Tables Schema</span>
+            <select id="schema-select" onchange="loadTablePreview()" class="border text-xs rounded px-2 py-1 bg-white text-brandBlueDark font-bold focus:ring-1 focus:ring-brandBlue">
+              <option value="sales">sales</option>
+              <option value="customers">customers</option>
+              <option value="restaurants">restaurants</option>
+            </select>
+          </div>
+          
+          <!-- Columns display -->
+          <div id="columns-list" class="text-[10px] text-gray-500 font-mono space-y-1">
+            <!-- Loaded dynamically -->
+          </div>
+
+          <!-- Table rows preview wrapper -->
+          <div class="overflow-x-auto w-full max-h-48 border border-gray-100 rounded-lg text-[9px]" id="schema-preview-table-container">
+            <!-- Loaded dynamically -->
+          </div>
+        </div>
+
+        <!-- Hint Accordion -->
+        <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-3">
+          <h4 class="font-bold text-xs text-brandBlueDark uppercase tracking-wider">💡 Practice Hints</h4>
+          <div class="space-y-2 text-xs">
+            <details class="border rounded p-2.5 bg-gray-50/50 cursor-pointer select-none">
+              <summary class="font-bold text-[10px] text-gray-600">Hint 1: Database Structure</summary>
+              <p class="mt-2 text-gray-500 font-mono text-[10px]" id="hint-1-text">Click show schemas to verify targeted column spelling.</p>
+            </details>
+            <details class="border rounded p-2.5 bg-gray-50/50 cursor-pointer select-none">
+              <summary class="font-bold text-[10px] text-gray-600">Hint 2: Query Filter Constraints</summary>
+              <p class="mt-2 text-gray-500 font-mono text-[10px]" id="hint-2-text">Check aggregate requirements like WHERE vs HAVING clauses.</p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column (Query Editor & Console results) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Textarea Editor -->
+        <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-4">
+          <h3 class="font-bold text-xs text-brandBlueDark uppercase tracking-wider border-b pb-2 flex items-center justify-between">
+            <span>SQL Sandbox Query Editor</span>
+            <span class="text-[9px] text-gray-400 font-mono">ANSI SQL SELECT compiler</span>
+          </h3>
+          
+          <textarea id="sql-editor" rows="5" class="w-full p-4 font-mono text-xs border rounded-2xl bg-gray-950 text-emerald-400 focus:ring-1 focus:ring-brandBlue outline-none" placeholder="SELECT * FROM sales;"></textarea>
+          
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono text-gray-400">Sandbox DB: sandbox.db</span>
+            <div class="flex items-center gap-3">
+              <button onclick="resetEditorQuery()" class="px-4 py-2 border rounded-lg text-xs font-bold hover:bg-gray-50 transition-all text-textMuted">Reset</button>
+              <button onclick="runEditorQuery()" class="px-5 py-2 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-lg shadow-md transition-all">⚡ Run Query</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Output results -->
+        <div class="bg-gray-950 p-5 rounded-3xl border border-gray-800 text-emerald-400 font-mono text-xs min-h-[160px] overflow-x-auto space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2 text-[10px] text-gray-500">
+            <span>TERMINAL RUN LOGS</span>
+            <span class="text-[9px] text-emerald-500 font-bold" id="run-status">READY</span>
+          </div>
+          <div id="terminal-output" class="whitespace-pre-wrap leading-relaxed text-[10px] text-gray-300">
+            Console: Waiting for query execution...
+          </div>
+        </div>
+
+        <!-- Submit & Validate Panel -->
+        <div class="bg-white p-5 rounded-3xl border shadow-sm flex items-center justify-between">
+          <div class="text-xs">
+            <span class="text-[10px] text-gray-400 font-bold block uppercase">Earnable rewards</span>
+            <span class="font-bold text-brandPurple">+25 XP &middot; +5.0 SQL LT</span>
+          </div>
+          <button onclick="submitChallengeAnswer()" id="btn-submit-lab" class="px-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-lg shadow-md transition-all">
+            Submit Solution
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FLOATING MAC DOCK -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl border border-gray-200/50 shadow-2xl flex items-center gap-6 transition-all duration-300 hover:bg-white">
+    <a href="../index.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandBlue to-indigo-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🏠
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Home</span>
+    </a>
+    <a href="../dashboard.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-indigo-700 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📊
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Dashboard</span>
+    </a>
+    <a href="../practice.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🎯
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Practice Portal</span>
+    </a>
+    <a href="../resources.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPurple to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📂
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Resources</span>
+    </a>
+  </div>
+
+  <!-- Include Scripts -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/sql-engine.js"></script>
+  <script src="../js/practice-engine.js"></script>
+
+  <script>
+    // SQL Practice Challenges Pools
+    const sqlChallenges = [
+      {
+        id: "sql_ch_01",
+        title: "Find High Revenue Electronics Transactions",
+        description: "Write a SELECT query targeting the sales table. Filter rows to find category = 'Electronics' with revenue > 200, ordered by revenue descending.",
+        defaultQuery: "SELECT product, revenue FROM sales WHERE category = 'Electronics' AND revenue > 200 ORDER BY revenue DESC;",
+        expectedQuery: "SELECT product, revenue FROM sales WHERE category = 'Electronics' AND revenue > 200 ORDER BY revenue DESC;",
+        hint1: "Target columns are: [product, revenue] from sales table.",
+        hint2: "Use WHERE category = 'Electronics' AND revenue > 200 ORDER BY revenue DESC"
+      },
+      {
+        id: "sql_ch_02",
+        title: "Top Spenders Profiles Audit",
+        description: "Select names and total spend from customers table where total_spent > 1000 ordered by total_spent descending.",
+        defaultQuery: "SELECT name, total_spent FROM customers WHERE total_spent > 1000 ORDER BY total_spent DESC;",
+        expectedQuery: "SELECT name, total_spent FROM customers WHERE total_spent > 1000 ORDER BY total_spent DESC;",
+        hint1: "Target columns are: [name, total_spent] from customers table.",
+        hint2: "Use WHERE total_spent > 1000 ORDER BY total_spent DESC"
+      }
+    ];
+
+    let activeChallengeIndex = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadTablePreview();
+      loadActiveChallenge();
+    });
+
+    function loadActiveChallenge() {
+      const ch = sqlChallenges[activeChallengeIndex];
+      document.getElementById('challenge-title').innerText = ch.title;
+      document.getElementById('challenge-desc').innerText = ch.description;
+      document.getElementById('sql-editor').value = `SELECT * FROM ${ch.expectedQuery.toLowerCase().includes('from sales') ? 'sales' : 'customers'};`;
+      
+      // Update hints
+      document.getElementById('hint-1-text').innerText = ch.hint1;
+      document.getElementById('hint-2-text').innerText = ch.hint2;
+    }
+
+    function loadTablePreview() {
+      const tableName = document.getElementById('schema-select').value;
+      const data = mockDB[tableName];
+      const columnsList = document.getElementById('columns-list');
+      const tableContainer = document.getElementById('schema-preview-table-container');
+      
+      if (!data || data.length === 0) return;
+
+      const cols = Object.keys(data[0]);
+      columnsList.innerHTML = `<strong>Columns:</strong> [${cols.join(', ')}]`;
+
+      let tableHtml = `<table class="min-w-full divide-y divide-gray-200 text-left border border-gray-150">
+        <thead class="bg-gray-50 text-[8px] font-bold">
+          <tr>`;
+      cols.forEach(c => {
+        tableHtml += `<th class="px-2 py-1 border">${c}</th>`;
+      });
+      tableHtml += `</tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 text-[8px] text-gray-600">`;
+      data.slice(0, 4).forEach(row => {
+        tableHtml += `<tr>`;
+        cols.forEach(c => {
+          tableHtml += `<td class="px-2 py-1 border">${row[c]}</td>`;
+        });
+        tableHtml += `</tr>`;
+      });
+      tableHtml += `</tbody>
+      </table>`;
+      tableContainer.innerHTML = tableHtml;
+    }
+
+    function resetEditorQuery() {
+      const ch = sqlChallenges[activeChallengeIndex];
+      document.getElementById('sql-editor').value = `SELECT * FROM ${ch.expectedQuery.toLowerCase().includes('from sales') ? 'sales' : 'customers'};`;
+      document.getElementById('terminal-output').innerHTML = "Console: Code editor reset.";
+      document.getElementById('run-status').innerText = 'READY';
+      document.getElementById('run-status').className = 'text-[9px] text-emerald-500 font-bold';
+    }
+
+    let lastResult = null;
+
+    function runEditorQuery() {
+      const editor = document.getElementById('sql-editor');
+      const terminal = document.getElementById('terminal-output');
+      const status = document.getElementById('run-status');
+      
+      const query = editor.value.trim();
+      if (!query) {
+        terminal.innerText = "Error: Text area is empty!";
+        status.innerText = "ERROR";
+        status.className = "text-[9px] text-red-500 font-bold";
+        return;
+      }
+
+      status.innerText = "RUNNING...";
+      status.className = "text-[9px] text-yellow-500 font-bold";
+
+      setTimeout(() => {
+        try {
+          const result = executeMockSQL(query);
+          lastResult = result;
+          renderSQLOutput(result, terminal);
+          status.innerText = "SUCCESS";
+          status.className = "text-[9px] text-emerald-500 font-bold";
+        } catch (e) {
+          lastResult = null;
+          terminal.innerText = `Console Error: ${e.message}`;
+          status.innerText = "SYNTAX ERROR";
+          status.className = "text-[9px] text-red-500 font-bold";
+        }
+      }, 250);
+    }
+
+    function submitChallengeAnswer() {
+      if (!lastResult) {
+        alert("Please run your query successfully in the editor first!");
+        return;
+      }
+
+      const ch = sqlChallenges[activeChallengeIndex];
+      
+      try {
+        const expectedResult = executeMockSQL(ch.expectedQuery);
+        
+        // Match lengths and items
+        const isCorrect = JSON.stringify(lastResult.data) === JSON.stringify(expectedResult.data);
+        
+        playFeedbackSound(isCorrect);
+
+        if (isCorrect) {
+          if (window.confetti) {
+            confetti({
+              particleCount: 100,
+              spread: 60,
+              origin: { y: 0.6 }
+            });
+          }
+          
+          recalculateAdaptiveMastery('SQL', true);
+
+          alert("Congratulations! Your query output matches the expected result. +25 XP awarded!");
+          
+          // Load next challenge or return
+          activeChallengeIndex = (activeChallengeIndex + 1) % sqlChallenges.length;
+          loadActiveChallenge();
+          lastResult = null;
+          document.getElementById('terminal-output').innerHTML = "Console: Waiting for query execution...";
+        } else {
+          recalculateAdaptiveMastery('SQL', false);
+          alert("Incorrect: Output rows do not match the expected dataset. Check your filtering rules or sorting order.");
+        }
+      } catch (e) {
+        alert("Evaluation Error: " + e.message);
+      }
+    }
+  </script>
+</body>
+</html>

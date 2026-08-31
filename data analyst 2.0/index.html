@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataAnalystTheta 2.0 | Practice Data Analytics. Build Real Skills.</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0693E3',
+            brandBlueDark: '#032656',
+            brandPurple: '#7D077D',
+            lightBg: '#F8FAFC',
+            cardBg: '#FFFFFF',
+            textMain: '#2B161B',
+            textMuted: '#453E3E',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-lightBg text-textMain min-h-screen flex flex-col font-sans pb-24">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 z-50 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
+          θ
+        </div>
+        <span class="font-bold text-xl tracking-tight text-brandBlueDark">
+          DataAnalyst<span class="text-brandBlue">Theta</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav Link Menu -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-textMuted">
+        <a href="index.html" class="nav-link-btn" id="nav-btn-landing">Home</a>
+        <a href="dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-dashboard">Dashboard</a>
+        <a href="practice.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-practice">Practice Portal</a>
+        <a href="challenges.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-challenges">Challenges</a>
+        <a href="interview.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-interview">Interview Prep</a>
+        <a href="analytics.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-analytics">Analytics</a>
+        <a href="resources.html" class="nav-link-btn hover:text-brandBlue transition-colors" id="nav-btn-resources">Free Resources</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-4">
+        <a href="dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
+          Workspace Dashboard
+        </a>
+        <!-- Mock Avatar Profile -->
+        <a href="profile.html" class="flex items-center gap-2 cursor-pointer">
+          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="flex-grow pt-16">
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-white py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brandBlue/10 text-brandBlue text-xs font-bold uppercase tracking-wider select-none">
+          ⚡ Static Client-Side Sandboxes & Assessment Labs
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-none text-gradient-blue pb-1">
+          Practice Data Analytics. Build Real Skills.
+        </h1>
+        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Master SQL compilers, complex Excel formulas, Pandas cleaning libraries, Statistics modeling, and DAX relationships through adaptive practice challenges.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+          <a href="practice.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full font-bold text-sm text-white bg-brandBlue hover:bg-brandBlue/90 shadow-lg shadow-brandBlue/20 hover:scale-105 transform transition-all duration-300">
+            Start Practicing Free
+          </a>
+          <a href="interview.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full font-bold text-sm text-textMuted bg-gray-150 hover:bg-gray-200 transition-all">
+            Take Skill Assessment
+          </a>
+        </div>
+        <!-- Trust Badges -->
+        <div class="pt-12">
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Trusted by 10k+ candidates practicing for placements at</p>
+          <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+            <span class="font-extrabold text-base tracking-wider text-gray-500">TCS NQT</span>
+            <span class="font-extrabold text-base tracking-wider text-gray-500">ACCENTURE</span>
+            <span class="font-extrabold text-base tracking-wider text-gray-500">COGNIZANT</span>
+            <span class="font-extrabold text-base tracking-wider text-gray-500">AMAZON</span>
+            <span class="font-extrabold text-base tracking-wider text-gray-500">KPMG</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILL CATEGORIES MATRIX SECTION -->
+    <section class="py-16 bg-white border-y border-gray-150">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs text-brandBlue font-extrabold uppercase tracking-widest">PRACTICE YOUR DATA SKILLS</span>
+          <h2 class="text-3xl font-black text-brandBlueDark">Curriculum & Interactive Labs</h2>
+          <p class="text-gray-500 text-sm">Select any target skill area to launch the interactive testing workbenches.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- SQL Card -->
+          <div class="bg-lightBg p-6 rounded-2xl border border-gray-200 flex flex-col justify-between spring-hover">
+            <div class="space-y-3">
+              <span class="text-2xl">💾</span>
+              <h3 class="font-bold text-lg text-brandBlueDark">SQL Queries Lab</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">
+                Query relational databases and solve business tasks using our extended SELECT, WHERE, and GROUP BY sandbox.
+              </p>
+            </div>
+            <a href="practice/sql.html" class="mt-6 border-t pt-4 flex items-center justify-between text-xs text-brandBlue font-semibold hover:underline">
+              <span>Launch SQL Compiler</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Excel Card -->
+          <div class="bg-lightBg p-6 rounded-2xl border border-gray-200 flex flex-col justify-between spring-hover">
+            <div class="space-y-3">
+              <span class="text-2xl">📊</span>
+              <h3 class="font-bold text-lg text-brandBlueDark">Excel Worksheets</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">
+                Master lookups (XLOOKUP, INDEX/MATCH), logical evaluation arrays, and formatting/data cleaning strings.
+              </p>
+            </div>
+            <a href="practice/excel.html" class="mt-6 border-t pt-4 flex items-center justify-between text-xs text-brandBlue font-semibold hover:underline">
+              <span>Try Formula Challenges</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Python Card -->
+          <div class="bg-lightBg p-6 rounded-2xl border border-gray-200 flex flex-col justify-between spring-hover">
+            <div class="space-y-3">
+              <span class="text-2xl">🐍</span>
+              <h3 class="font-bold text-lg text-brandBlueDark">Python Wrangling</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">
+                Practice Pandas GroupBy, data cleanse drops, matrix lists, and basic numpy arrays configurations.
+              </p>
+            </div>
+            <a href="practice/python.html" class="mt-6 border-t pt-4 flex items-center justify-between text-xs text-brandBlue font-semibold hover:underline">
+              <span>Solve Pandas Snippets</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Statistics Card -->
+          <div class="bg-lightBg p-6 rounded-2xl border border-gray-200 flex flex-col justify-between spring-hover">
+            <div class="space-y-3">
+              <span class="text-2xl">🧠</span>
+              <h3 class="font-bold text-lg text-brandBlueDark">Practical Statistics</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">
+                Build logical analytical reasoning over variance distributions, p-values validation, and Bayes probabilities.
+              </p>
+            </div>
+            <a href="practice/statistics.html" class="mt-6 border-t pt-4 flex items-center justify-between text-xs text-brandBlue font-semibold hover:underline">
+              <span>Practice Stats Analytics</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Power BI Card -->
+          <div class="bg-lightBg p-6 rounded-2xl border border-gray-200 flex flex-col justify-between spring-hover">
+            <div class="space-y-3">
+              <span class="text-2xl">💻</span>
+              <h3 class="font-bold text-lg text-brandBlueDark">Power BI Modeling</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">
+                Explore calculated columns models, relationship cardinalities, and Power Query variables logic.
+              </p>
+            </div>
+            <a href="practice/powerbi.html" class="mt-6 border-t pt-4 flex items-center justify-between text-xs text-brandBlue font-semibold hover:underline">
+              <span>DAX Measures & Schema</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Case Studies Card -->
+          <div class="bg-lightBg p-6 rounded-2xl border border-gray-200 flex flex-col justify-between spring-hover">
+            <div class="space-y-3">
+              <span class="text-2xl">💼</span>
+              <h3 class="font-bold text-lg text-brandBlueDark">Business Case Studies</h3>
+              <p class="text-xs text-gray-500 leading-relaxed">
+                Step into the shoes of an enterprise analyst auditing churn patterns and revenue drops.
+              </p>
+            </div>
+            <a href="case-studies.html" class="mt-6 border-t pt-4 flex items-center justify-between text-xs text-brandBlue font-semibold hover:underline">
+              <span>Read Case Scenarios</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADAPTIVE VS TRADITIONAL SECTION -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl font-extrabold text-brandBlueDark">Adaptive Practice vs Traditional Methods</h2>
+        <p class="text-gray-500 text-sm mt-2">Why 93% of successful students prefer our adaptive engine over static PDFs.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-md">
+        <table class="min-w-full divide-y divide-gray-200 text-left border-collapse">
+          <thead class="bg-brandBlueDark text-white">
+            <tr>
+              <th class="px-6 py-4 text-sm font-bold tracking-wider">Traditional Practice</th>
+              <th class="px-6 py-4 text-sm font-bold tracking-wider bg-brandBlue">DataAnalystTheta 2.0</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white text-sm text-textMain font-medium">
+            <tr class="hover:bg-gray-50/50 transition-colors">
+              <td class="px-6 py-4 text-textMuted">Same question path for everyone</td>
+              <td class="px-6 py-4 text-emerald-600 bg-blue-50/20 font-bold">✔ Adaptive difficulty scaling based on score</td>
+            </tr>
+            <tr class="hover:bg-gray-50/50 transition-colors">
+              <td class="px-6 py-4 text-textMuted">Random offline PDFs matching</td>
+              <td class="px-6 py-4 text-emerald-600 bg-blue-50/20 font-bold">✔ Structured, skill-based practice tracks</td>
+            </tr>
+            <tr class="hover:bg-gray-50/50 transition-colors">
+              <td class="px-6 py-4 text-textMuted">Simple static final score output</td>
+              <td class="px-6 py-4 text-emerald-600 bg-blue-50/20 font-bold">✔ Realtime mastery level & Chart.js logs</td>
+            </tr>
+            <tr class="hover:bg-gray-50/50 transition-colors">
+              <td class="px-6 py-4 text-textMuted">No weakness detection mechanism</td>
+              <td class="px-6 py-4 text-emerald-600 bg-blue-50/20 font-bold">✔ Auto weak-areas prioritization lists</td>
+            </tr>
+            <tr class="hover:bg-gray-50/50 transition-colors">
+              <td class="px-6 py-4 text-textMuted">Conceptual multiple choice queries only</td>
+              <td class="px-6 py-4 text-emerald-600 bg-blue-50/20 font-bold">✔ MCQs + SQL compiler sandboxes + datasets</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MOCK PRICING SUBSCRIPTION MODAL -->
+  <div id="pricing-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-gray-950/75 backdrop-blur-sm p-4 animate-fade-in">
+    <div class="bg-white max-w-xl w-full rounded-3xl border border-gray-200 shadow-2xl p-6 sm:p-8 relative space-y-6 animate-slide-up">
+      <!-- Close Button -->
+      <button onclick="closePricingModal()" class="absolute top-5 right-5 text-gray-400 hover:text-brandBlueDark transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="text-center space-y-1.5">
+        <span class="text-xs text-brandBlue font-extrabold uppercase tracking-widest">STUDENT FRIENDLY PRICES 😲</span>
+        <h3 class="font-black text-2xl sm:text-3xl text-brandBlueDark">Get Unlimited Practice Access</h3>
+        <p class="text-xs sm:text-sm text-gray-500">Accelerate your data analyst placement preparation with custom analytics.</p>
+      </div>
+
+      <!-- Pricing Plans Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+        <!-- Free Plan -->
+        <div class="border border-gray-200 p-5 rounded-2xl flex flex-col justify-between bg-gray-50/50">
+          <div>
+            <h4 class="font-bold text-sm text-textMuted uppercase tracking-wider">Free Trial</h4>
+            <span class="text-3xl font-black text-brandBlueDark block mt-2">$0</span>
+            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Access basic SQL, Excel, and Statistics practice panels.</p>
+          </div>
+          <a href="practice.html" class="w-full mt-6 py-2.5 text-center bg-white border border-gray-200 text-brandBlueDark hover:border-brandBlue rounded-lg text-xs font-bold transition-all">
+            Continue Practice
+          </a>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="border-2 border-brandBlue p-5 rounded-2xl flex flex-col justify-between bg-blue-50/10 relative">
+          <span class="absolute top-2.5 right-2.5 bg-brandBlue text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded">Best Seller</span>
+          <div>
+            <h4 class="font-bold text-sm text-brandBlue uppercase tracking-wider">Pro Placement</h4>
+            <span class="text-3xl font-black text-brandBlueDark block mt-2">$19<span class="text-xs font-semibold text-gray-500">/lifetime</span></span>
+            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Unlock complete SQL sandboxes, all business case studies, and weak-area engines.</p>
+          </div>
+          <button onclick="alert('Demo Mode: Checkout redirects simulated.')" class="w-full mt-6 py-2.5 rounded-lg text-xs font-bold bg-brandBlue hover:bg-brandBlue/90 text-white shadow-md shadow-brandBlue/10 transition-all">
+            Unlock Lifetime Access
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING MAC DOCK (Visual Shortcut Dock) -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl border border-gray-200/50 shadow-2xl flex items-center gap-6 transition-all duration-300 hover:bg-white">
+    <a href="index.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandBlue to-indigo-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🏠
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Home</span>
+    </a>
+    <a href="dashboard.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-indigo-700 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📊
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Dashboard</span>
+    </a>
+    <a href="practice.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🎯
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Practice Portal</span>
+    </a>
+    <a href="resources.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPurple to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📂
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Resources</span>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-brandBlueDark text-gray-400 py-8 border-t border-blue-950 mt-12 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="flex items-center justify-center gap-2 text-white">
+        <div class="w-7 h-7 rounded bg-brandBlue flex items-center justify-center font-bold text-sm">θ</div>
+        <span class="font-bold">DataAnalystTheta</span>
+      </div>
+      <p class="text-xs leading-relaxed max-w-md mx-auto">
+        Designed for data analyst placement preparation. Adaptive practice engine powered by local JavaScript client state.
+      </p>
+      <div class="text-[10px] text-gray-500">
+        &copy; 2026 DataAnalystTheta | All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Include Shared Navigation Logic -->
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

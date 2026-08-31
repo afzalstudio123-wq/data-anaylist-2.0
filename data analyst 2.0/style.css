@@ -1,0 +1,168 @@
+/* Core Custom Variables and Animations */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --color-brand-blue: #0693E3;
+  --color-brand-blue-dark: #032656;
+  --color-brand-purple: #7D077D;
+  --color-light-bg: #F8FAFC;
+  --color-card-bg: #FFFFFF;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-light-bg);
+  color: #2B161B;
+}
+
+/* Navigation active links state style */
+.nav-link-active {
+  color: var(--color-brand-blue) !important;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-brand-blue);
+}
+
+/* Custom transitions and interactive spring behaviors */
+.spring-hover {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.25s ease, 
+              border-color 0.25s ease;
+}
+
+.spring-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(6, 147, 227, 0.12);
+  border-color: rgba(6, 147, 227, 0.3);
+}
+
+/* Option checkbox selection styled wrapper */
+.option-btn {
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 16px 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-btn:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  transform: translateY(-1px);
+}
+
+.option-btn-selected {
+  background: #F0F9FF !important;
+  border-color: var(--color-brand-blue) !important;
+  box-shadow: 0 0 0 2px rgba(6, 147, 227, 0.2);
+}
+
+.option-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748B;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.option-btn-selected .option-badge {
+  border-color: var(--color-brand-blue);
+  background: var(--color-brand-blue);
+  color: white;
+}
+
+/* Premium gradient headings */
+.text-gradient-blue {
+  background: linear-gradient(135deg, var(--color-brand-blue-dark) 30%, var(--color-brand-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, var(--color-brand-blue-dark) 30%, var(--color-brand-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Pulse animation for timer */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(125, 7, 125, 0.2);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 8px 2px rgba(125, 7, 125, 0.1);
+  }
+}
+
+.timer-active {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Custom Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* CSS View toggle configurations */
+.tab-view {
+  transition: opacity 0.25s ease-in-out;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 640px) {
+  table {
+    display: block;
+    width: 100%;
+  }
+}

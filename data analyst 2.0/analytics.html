@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics & Diagnostic Charts | DataAnalystTheta 2.0</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0693E3',
+            brandBlueDark: '#032656',
+            brandPurple: '#7D077D',
+            lightBg: '#F8FAFC',
+            cardBg: '#FFFFFF',
+            textMain: '#2B161B',
+            textMuted: '#453E3E',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-lightBg text-textMain min-h-screen flex flex-col font-sans pb-24">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 z-50 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
+          θ
+        </div>
+        <span class="font-bold text-xl tracking-tight text-brandBlueDark">
+          DataAnalyst<span class="text-brandBlue">Theta</span>
+        </span>
+      </a>
+
+      <!-- Menu links -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-textMuted">
+        <a href="index.html" class="nav-link-btn hover:text-brandBlue transition-colors">Home</a>
+        <a href="dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors">Dashboard</a>
+        <a href="practice.html" class="nav-link-btn hover:text-brandBlue transition-colors">Practice Portal</a>
+        <a href="challenges.html" class="nav-link-btn hover:text-brandBlue transition-colors">Challenges</a>
+        <a href="interview.html" class="nav-link-btn hover:text-brandBlue transition-colors">Interview Prep</a>
+        <a href="analytics.html" class="nav-link-btn text-brandBlue border-b-2 border-brandBlue">Analytics</a>
+        <a href="resources.html" class="nav-link-btn hover:text-brandBlue transition-colors">Free Resources</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-4">
+        <a href="dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
+          Workspace Dashboard
+        </a>
+        <a href="profile.html" class="flex items-center gap-2 cursor-pointer">
+          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN AREA -->
+  <main class="flex-grow pt-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-8 animate-fade-in">
+    
+    <div class="flex items-center justify-between border-b pb-4">
+      <div>
+        <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">DIAGNOSTIC DASHBOARD</span>
+        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">📊 Mastery Metrics & Weak Areas</h2>
+      </div>
+      <a href="practice.html" class="text-xs text-textMuted hover:text-brandBlue font-bold">← Return to Hub</a>
+    </div>
+
+    <!-- 1. KPI COUNTERS GRID -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="bg-white p-5 rounded-2xl border shadow-sm text-center space-y-1">
+        <span class="text-[10px] text-gray-400 font-extrabold uppercase tracking-wider block">Average Readiness</span>
+        <span class="text-2xl font-black text-brandBlue" id="kpi-readiness">30.0%</span>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border shadow-sm text-center space-y-1">
+        <span class="text-[10px] text-gray-400 font-extrabold uppercase tracking-wider block">Total Attempts</span>
+        <span class="text-2xl font-black text-brandPurple" id="kpi-attempts">0</span>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border shadow-sm text-center space-y-1">
+        <span class="text-[10px] text-gray-400 font-extrabold uppercase tracking-wider block">Average Accuracy</span>
+        <span class="text-2xl font-black text-emerald-600" id="kpi-accuracy">0%</span>
+      </div>
+      <div class="bg-white p-5 rounded-2xl border shadow-sm text-center space-y-1">
+        <span class="text-[10px] text-gray-400 font-extrabold uppercase tracking-wider block">Active Streak</span>
+        <span class="text-2xl font-black text-orange-500" id="kpi-streak">🔥 1 Day</span>
+      </div>
+    </div>
+
+    <!-- 2. DIAGNOSTICS CHARTS CANVAS GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Chart 1: Subject Accuracy Rates -->
+      <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-4">
+        <h3 class="font-bold text-xs text-brandBlueDark uppercase tracking-wider border-b pb-2">Subject Accuracy Rates (%)</h3>
+        <div class="h-64 relative">
+          <canvas id="accuracyChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Mastery Level Gauge Progress -->
+      <div class="bg-white p-5 rounded-3xl border shadow-sm space-y-4">
+        <h3 class="font-bold text-xs text-brandBlueDark uppercase tracking-wider border-b pb-2">Subject Mastery Levels (LT Score)</h3>
+        <div class="h-64 relative">
+          <canvas id="masteryChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. WEAK AREAS LIST ENGINE -->
+    <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-4">
+      <h3 class="font-black text-lg text-brandBlueDark">⚠️ Weak Area Analytics Engine</h3>
+      <p class="text-xs text-gray-500 leading-relaxed">
+        Our diagnostics engine automatically analyzes your incorrect responses in local memory. Focus on the subjects below to clear placement criteria.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="weak-areas-list">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FLOATING MAC DOCK -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl border border-gray-200/50 shadow-2xl flex items-center gap-6 transition-all duration-300 hover:bg-white">
+    <a href="index.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandBlue to-indigo-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🏠
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Home</span>
+    </a>
+    <a href="dashboard.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-indigo-700 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📊
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Dashboard</span>
+    </a>
+    <a href="practice.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        🎯
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Practice Portal</span>
+    </a>
+    <a href="resources.html" class="flex flex-col items-center gap-1 group relative">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPurple to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
+        📂
+      </div>
+      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Resources</span>
+    </a>
+  </div>
+
+  <!-- Include Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mastery = Storage.get('mastery');
+      const attempts = Storage.get('attempts', []);
+      const streak = Storage.get('streak', { count: 1 });
+
+      // KPI totals calculations
+      const avgReadiness = (mastery.sql + mastery.excel + mastery.python + mastery.statistics + mastery.powerbi) / 5;
+      document.getElementById('kpi-readiness').innerText = `${avgReadiness.toFixed(1)}%`;
+      document.getElementById('kpi-attempts').innerText = attempts.length;
+      document.getElementById('kpi-streak').innerText = `🔥 ${streak.count} ${streak.count === 1 ? 'Day' : 'Days'}`;
+
+      let correctAttempts = attempts.filter(a => a.correct).length;
+      let accuracyPercent = attempts.length > 0 ? Math.round((correctAttempts / attempts.length) * 100) : 0;
+      document.getElementById('kpi-accuracy').innerText = `${accuracyPercent}%`;
+
+      // Draw Charts
+      drawAccuracyChart(attempts);
+      drawMasteryChart(mastery);
+
+      // Render weak areas
+      renderWeakAreas(mastery, attempts);
+    });
+
+    function drawAccuracyChart(attempts) {
+      const ctx = document.getElementById('accuracyChart').getContext('2d');
+      
+      const subjects = ['SQL', 'Excel', 'Python', 'Statistics', 'Power BI'];
+      const data = subjects.map(sub => {
+        const list = attempts.filter(a => a.subject === sub);
+        if (list.length === 0) return 0;
+        const correct = list.filter(a => a.correct).length;
+        return Math.round((correct / list.length) * 100);
+      });
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: subjects,
+          datasets: [{
+            label: 'Accuracy Rate (%)',
+            data: data,
+            backgroundColor: '#0693E3',
+            borderRadius: 8,
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { min: 0, max: 100 }
+          }
+        }
+      });
+    }
+
+    function drawMasteryChart(mastery) {
+      const ctx = document.getElementById('masteryChart').getContext('2d');
+      const subjects = ['SQL', 'Excel', 'Python', 'Statistics', 'Power BI'];
+      const data = [
+        mastery.sql || 30.0,
+        mastery.excel || 30.0,
+        mastery.python || 30.0,
+        mastery.statistics || 30.0,
+        mastery.powerbi || 30.0
+      ];
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: subjects,
+          datasets: [{
+            label: 'Subject Mastery (LT Score)',
+            data: data,
+            borderColor: '#7D077D',
+            backgroundColor: 'rgba(125, 7, 125, 0.05)',
+            fill: true,
+            tension: 0.3,
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { min: 0, max: 100 }
+          }
+        }
+      });
+    }
+
+    function renderWeakAreas(mastery, attempts) {
+      const container = document.getElementById('weak-areas-list');
+      if (!container) return;
+
+      container.innerHTML = '';
+      
+      const details = {
+        sql: { title: "SQL Database Queries", desc: "Focus on multi-table JOIN boundaries and aggregate groupings limits queries.", page: "practice/sql.html" },
+        excel: { title: "Excel Formulas & Cleaning", desc: "Impute exact references and lookups logic parameters using XLOOKUP.", page: "practice/excel.html" },
+        python: { title: "Python Wrangling", desc: "Master Pandas groupby transform structures to clear vector checks.", page: "practice/python.html" },
+        statistics: { title: "Statistics & Probability", desc: "Review Bayes conditional tree branches to solve diagnostics questions.", page: "practice/statistics.html" },
+        powerbi: { title: "Power BI relationships", desc: "Prevent circular dependencies by auditing relationship cardinalities.", page: "practice/powerbi.html" }
+      };
+
+      let weakCount = 0;
+      Object.keys(mastery).forEach(key => {
+        if (mastery[key] < 60) {
+          weakCount++;
+          const det = details[key];
+          const card = document.createElement('div');
+          card.className = "bg-red-50/20 border border-red-200 p-5 rounded-2xl flex flex-col justify-between hover:border-red-300 transition-all";
+          card.innerHTML = `
+            <div class="space-y-2">
+              <span class="px-2 py-0.5 rounded bg-red-100 text-red-700 text-[9px] font-bold uppercase tracking-wider block w-fit">Accuracy: ${mastery[key].toFixed(1)}%</span>
+              <h4 class="font-bold text-sm text-brandBlueDark">${det.title}</h4>
+              <p class="text-[11px] text-gray-500 leading-relaxed">${det.desc}</p>
+            </div>
+            <a href="${det.page}" class="mt-4 text-xs text-red-500 font-bold block text-right hover:underline">Improve Skill →</a>
+          `;
+          container.appendChild(card);
+        }
+      });
+
+      if (weakCount === 0) {
+        container.innerHTML = `
+          <div class="col-span-2 bg-emerald-50 border border-emerald-200 p-6 rounded-2xl text-center space-y-2">
+            <span class="text-2xl">🎉</span>
+            <h4 class="font-bold text-emerald-800 text-sm">No Weak Areas Identified!</h4>
+            <p class="text-xs text-emerald-600 leading-relaxed">
+              All of your subject masteries are above 60%. Continue mock placement tests to prepare for interviews.
+            </p>
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
