@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Power BI Practice Lab | DataAnalystTheta 2.0</title>
-  <!-- Tailwind CSS CDN -->
+  <title>AI Practice Lab | Aptech@Mahanagar, Lko</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,27 +25,22 @@
       }
     }
   </script>
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="../css/style.css">
-  <!-- Confetti CDN -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body class="bg-lightBg text-textMain min-h-screen flex flex-col font-sans pb-24">
 
-  <!-- NAVIGATION HEADER -->
+  <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 z-50 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <!-- Logo -->
       <a href="../index.html" class="flex items-center gap-2 group">
         <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
-          θ
+          A
         </div>
         <span class="font-bold text-xl tracking-tight text-brandBlueDark">
-          DataAnalyst<span class="text-brandBlue">Theta</span>
+          Aptech<span class="text-brandBlue">@Mahanagar, Lko</span>
         </span>
       </a>
-
-      <!-- Menu Links -->
       <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-textMuted">
         <a href="../index.html" class="nav-link-btn hover:text-brandBlue transition-colors">Home</a>
         <a href="../dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors">Dashboard</a>
@@ -56,36 +50,31 @@
         <a href="../analytics.html" class="nav-link-btn hover:text-brandBlue transition-colors">Analytics</a>
         <a href="../resources.html" class="nav-link-btn hover:text-brandBlue transition-colors">Free Resources</a>
       </nav>
-
-      <!-- Right Header Actions -->
       <div class="flex items-center gap-4">
-        <a href="../dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
-          Workspace Dashboard
+        <a href="../dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md">
+          Dashboard
         </a>
         <a href="../profile.html" class="flex items-center gap-2 cursor-pointer">
-          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+          <img src="https://ui-avatars.com/api/?name=Student&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
         </a>
       </div>
     </div>
   </header>
 
-  <!-- MAIN WRAPPER -->
+  <!-- MAIN -->
   <main class="flex-grow pt-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 space-y-6">
-    
     <div class="flex items-center justify-between border-b pb-4">
       <div>
         <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">PRACTICE LABS</span>
-        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">💻 Power BI & Data Modeling Lab</h2>
+        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">🤖 AI & Deep Learning Lab (LLMs, Neural Networks, Transformers)</h2>
       </div>
       <a href="../practice.html" class="text-xs text-textMuted hover:text-brandBlue font-bold">← Return to Hub</a>
     </div>
 
-    <!-- Active Question Card with Sidebar -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      
-      <!-- Left Sidebar (Gauges) -->
+      <!-- Left Sidebar -->
       <div class="lg:col-span-3 bg-white p-5 rounded-2xl border shadow-sm space-y-4">
-        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider select-none">BI Progress</span>
+        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider select-none">AI Progress</span>
         <div class="border-t pt-4">
           <span class="text-xs text-gray-400 block font-semibold">Active Subject Score</span>
           <span class="text-2xl font-black text-brandBlue" id="session-score">30.0 LT</span>
@@ -96,10 +85,8 @@
         </div>
       </div>
 
-      <!-- Right Main MCQ terminal -->
+      <!-- Right MCQ / Fill-up Terminal -->
       <div class="lg:col-span-9 bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col justify-between min-h-[425px]">
-        
-        <!-- Top progress header -->
         <div class="bg-gray-50 border-b px-6 py-4 flex flex-col gap-3">
           <div class="flex items-center justify-between">
             <span class="text-xs text-gray-500 font-bold uppercase tracking-wider" id="current-question-tag">Question #1</span>
@@ -107,40 +94,31 @@
               <div class="flex items-center gap-1.5 text-xs font-mono font-bold text-brandPurple bg-purple-50 px-3 py-1 rounded-full border border-purple-100 timer-active">
                 ⏱ <span id="question-timer">00:00</span>
               </div>
-              <span class="text-[10px] text-white bg-brandBlue px-2.5 py-0.5 rounded-full font-bold uppercase" id="current-question-difficulty">Medium</span>
+              <span class="text-[10px] text-white bg-brandBlue px-2.5 py-0.5 rounded-full font-bold uppercase" id="current-question-difficulty">Moderate</span>
             </div>
           </div>
-          <!-- Progress bar -->
           <div class="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
             <div id="question-progress-bar" class="bg-brandBlue h-full transition-all duration-300" style="width: 0%;"></div>
           </div>
         </div>
 
-        <!-- Question body -->
         <div class="p-6 sm:p-8 flex-grow space-y-6">
           <div class="text-base sm:text-lg text-brandBlueDark font-bold leading-relaxed font-mono whitespace-pre-line" id="question-body">
-            Loading question...
+            Loading AI Question...
           </div>
 
-          <!-- Options choices -->
-          <div class="grid grid-cols-1 gap-3.5" id="question-options-container">
-            <!-- Dynamically populated -->
+          <!-- Options Container (MCQs or Fill-up) -->
+          <div id="question-options-container" class="space-y-3.5">
+            <!-- Loaded dynamically -->
           </div>
 
-          <!-- AI coach advice -->
-          <div id="ai-coach-container" class="hidden p-4 bg-blue-50/50 rounded-xl border border-brandBlue/20 text-xs text-textMuted space-y-2 leading-relaxed">
-            <span class="font-bold text-brandBlue block">🤖 AI Coach Tip</span>
-            <p id="ai-coach-text" class="font-mono text-gray-600 italic">Analyzing...</p>
-          </div>
-
-          <!-- Detailed Explanation -->
+          <!-- Explanation -->
           <div id="explanation-container" class="hidden p-4 bg-emerald-50/50 rounded-xl border border-emerald-500/20 text-xs text-textMuted space-y-2 leading-relaxed">
             <span class="font-bold text-emerald-700 block">💡 Detailed Explanation</span>
             <p id="explanation-text" class="font-mono"></p>
           </div>
         </div>
 
-        <!-- Footer actions -->
         <div class="bg-gray-50 border-t px-6 py-4 flex flex-wrap items-center justify-between gap-4">
           <button id="btn-practice-solution" onclick="toggleExplanation()" class="px-5 py-2.5 bg-white border text-textMuted hover:text-brandBlue hover:border-brandBlue/35 text-xs font-bold rounded-lg transition-all" disabled>
             Show Explanation
@@ -154,76 +132,74 @@
             </button>
           </div>
         </div>
-
       </div>
-
     </div>
-
   </main>
 
-  <!-- Include Scripts -->
   <script src="../js/storage.js"></script>
   <script src="../js/data.js"></script>
   <script src="../js/practice-engine.js"></script>
   <script src="../js/app.js"></script>
-
   <script>
-    let statsQuestions = [];
+    let aiQuestions = [];
     let currentIdx = 0;
     let selectedOpt = null;
     let secondsElapsed = 0;
     let timerInt = null;
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Filter Power BI questions from data.js pool
-      statsQuestions = questionPool.filter(q => q.subject === 'Power BI');
-      
+      aiQuestions = questionPool.filter(q => q.subject === 'AI');
       const streak = Storage.get('streak', { count: 1 });
       document.getElementById('session-streak').innerText = `🔥 ${streak.count} ${streak.count === 1 ? 'Day' : 'Days'}`;
-
       updateMasteryUI();
       loadQuestion();
     });
 
     function updateMasteryUI() {
-      const currentScore = getSubjectMastery('Power BI');
+      const currentScore = getSubjectMastery('AI');
       document.getElementById('session-score').innerText = `${currentScore.toFixed(1)} LT`;
     }
 
     function loadQuestion() {
       selectedOpt = null;
       document.getElementById('explanation-container').classList.add('hidden');
-      document.getElementById('ai-coach-container').classList.add('hidden');
       document.getElementById('btn-practice-solution').disabled = true;
       document.getElementById('btn-practice-submit').innerText = "Submit Answer";
       document.getElementById('btn-practice-submit').onclick = submitAnswer;
 
-      const q = statsQuestions[currentIdx];
+      const q = aiQuestions[currentIdx];
       if (!q) return;
 
-      // Update progress bar
-      const pct = Math.round((currentIdx / statsQuestions.length) * 100);
+      const pct = Math.round((currentIdx / aiQuestions.length) * 100);
       document.getElementById('question-progress-bar').style.width = `${pct}%`;
-      document.getElementById('current-question-tag').innerText = `Question #${currentIdx + 1} of ${statsQuestions.length}`;
+      document.getElementById('current-question-tag').innerText = `Question #${currentIdx + 1} of ${aiQuestions.length}`;
       document.getElementById('current-question-difficulty').innerText = q.difficulty;
+      document.getElementById('question-body').innerText = q.question;
 
-      document.getElementById('question-body').innerText = q.body;
-
-      // Options
       const optContainer = document.getElementById('question-options-container');
       optContainer.innerHTML = '';
-      q.options.forEach((opt, idx) => {
-        const letter = String.fromCharCode(65 + idx);
-        const div = document.createElement('div');
-        div.className = 'option-btn border p-4 rounded-xl cursor-pointer flex items-center gap-3 bg-white hover:bg-gray-50';
-        div.id = `option-${idx}`;
-        div.onclick = () => selectOption(idx);
-        div.innerHTML = `
-          <div class="option-badge w-6 h-6 rounded-full border flex items-center justify-center font-bold text-xs text-gray-500 bg-white" id="badge-${idx}">${letter}</div>
-          <span class="text-xs font-semibold text-textMain">${opt}</span>
+
+      if (q.type === 'fillup') {
+        optContainer.innerHTML = `
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-gray-500 block">Type your answer in the box below:</label>
+            <input type="text" id="fillup-input" placeholder="Type answer here..." class="w-full p-4 font-mono text-xs border rounded-xl bg-gray-50 focus:bg-white focus:ring-1 focus:ring-brandBlue outline-none text-brandBlueDark font-bold">
+          </div>
         `;
-        optContainer.appendChild(div);
-      });
+      } else {
+        q.options.forEach((opt, idx) => {
+          const letter = String.fromCharCode(65 + idx);
+          const div = document.createElement('div');
+          div.className = 'option-btn border p-4 rounded-xl cursor-pointer flex items-center gap-3 bg-white hover:bg-gray-50';
+          div.id = `option-${idx}`;
+          div.onclick = () => selectOption(idx);
+          div.innerHTML = `
+            <div class="option-badge w-6 h-6 rounded-full border flex items-center justify-center font-bold text-xs text-gray-500 bg-white" id="badge-${idx}">${letter}</div>
+            <span class="text-xs font-semibold text-textMain">${opt}</span>
+          `;
+          optContainer.appendChild(div);
+        });
+      }
 
       resetTimer();
     }
@@ -234,7 +210,6 @@
       document.getElementById(`option-${idx}`).classList.add('option-btn-selected');
     }
 
-    // Timer functions
     function resetTimer() {
       if (timerInt) clearInterval(timerInt);
       secondsElapsed = 0;
@@ -248,53 +223,51 @@
     }
 
     function submitAnswer() {
-      if (selectedOpt === null) {
-        alert("Please select an answer choice!");
-        return;
+      const q = aiQuestions[currentIdx];
+      let isCorrect = false;
+
+      if (q.type === 'fillup') {
+        const inputVal = (document.getElementById('fillup-input').value || '').trim().toLowerCase();
+        if (!inputVal) {
+          alert("Please type your fill-in-the-blank answer!");
+          return;
+        }
+        const answers = Array.isArray(q.fillAnswer) ? q.fillAnswer.map(a => a.toLowerCase()) : [q.fillAnswer.toLowerCase()];
+        isCorrect = answers.includes(inputVal);
+      } else {
+        if (selectedOpt === null) {
+          alert("Please select an answer choice!");
+          return;
+        }
+        isCorrect = (selectedOpt === q.answer);
       }
 
       clearInterval(timerInt);
-      const q = statsQuestions[currentIdx];
-      const isCorrect = (selectedOpt === q.answer);
-
-      // Play audio chime
       playFeedbackSound(isCorrect);
 
-      // Highlight options
-      const chosen = document.getElementById(`option-${selectedOpt}`);
-      if (isCorrect) {
-        chosen.classList.remove('option-btn-selected');
-        chosen.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-700', 'border-2');
-        document.getElementById(`badge-${selectedOpt}`).className = 'option-badge w-6 h-6 rounded-full border border-emerald-500 flex items-center justify-center font-bold text-xs bg-emerald-500 text-white';
-      } else {
-        chosen.classList.remove('option-btn-selected');
-        chosen.classList.add('bg-red-50', 'border-red-500', 'text-red-700', 'border-2');
-        document.getElementById(`badge-${selectedOpt}`).className = 'option-badge w-6 h-6 rounded-full border border-red-500 flex items-center justify-center font-bold text-xs bg-red-500 text-white';
-
-        const correct = document.getElementById(`option-${q.answer}`);
-        correct.classList.add('bg-emerald-50/50', 'border-emerald-400/50', 'text-emerald-700');
-        document.getElementById(`badge-${q.answer}`).className = 'option-badge w-6 h-6 rounded-full border border-emerald-400 flex items-center justify-center font-bold text-xs bg-emerald-400 text-white';
+      if (q.type === 'mcq') {
+        const chosen = document.getElementById(`option-${selectedOpt}`);
+        if (isCorrect) {
+          chosen.classList.remove('option-btn-selected');
+          chosen.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-700', 'border-2');
+        } else {
+          chosen.classList.remove('option-btn-selected');
+          chosen.classList.add('bg-red-50', 'border-red-500', 'text-red-700', 'border-2');
+          const correct = document.getElementById(`option-${q.answer}`);
+          if (correct) correct.classList.add('bg-emerald-50/50', 'border-emerald-400/50', 'text-emerald-700');
+        }
       }
 
-      // Record attempt
-      const attempts = Storage.get('attempts');
+      const attempts = Storage.get('attempts', []);
       attempts.push({ id: q.id, correct: isCorrect, subject: q.subject, topic: q.topic, time: secondsElapsed });
       Storage.set('attempts', attempts);
 
-      // Update score
-      recalculateAdaptiveMastery('Power BI', isCorrect);
+      recalculateAdaptiveMastery('AI', isCorrect);
       updateMasteryUI();
 
-      // Show solution & tips
       document.getElementById('explanation-text').innerText = q.explanation;
       document.getElementById('btn-practice-solution').disabled = false;
-      document.getElementById('ai-coach-container').classList.remove('hidden');
-      document.getElementById('ai-coach-text').innerText = isCorrect 
-        ? "Excellent Power BI logic! You understand the key differences between columns updates refresh and dynamic measures evaluation."
-        : "Remember that calculated columns require refresh time, whereas measures compute dynamically relative to report canvas slices.";
-
-      // Disable clicks
-      document.querySelectorAll('.option-btn').forEach(b => b.onclick = null);
+      document.getElementById('explanation-container').classList.remove('hidden');
 
       const submit = document.getElementById('btn-practice-submit');
       submit.innerText = "Next Question →";
@@ -303,32 +276,18 @@
 
     function loadNext() {
       currentIdx++;
-      if (currentIdx >= statsQuestions.length) {
+      if (currentIdx >= aiQuestions.length) {
         clearInterval(timerInt);
-        
-        if (window.confetti) {
-          confetti({
-            particleCount: 120,
-            spread: 70,
-            origin: { y: 0.6 }
-          });
-        }
-        
-        alert("Practice completed! Loading your analytics dashboard.");
+        if (window.confetti) confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+        alert("AI Lab Completed! Redirecting to analytics dashboard.");
         window.location.href = '../analytics.html';
         return;
       }
       loadQuestion();
     }
 
-    function skipQuestion() {
-      loadNext();
-    }
-
-    function toggleExplanation() {
-      const container = document.getElementById('explanation-container');
-      container.classList.toggle('hidden');
-    }
+    function skipQuestion() { loadNext(); }
+    function toggleExplanation() { document.getElementById('explanation-container').classList.toggle('hidden'); }
   </script>
 </body>
 </html>

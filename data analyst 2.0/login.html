@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration & Login | Aptech@Mahanagar, Lko</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0693E3',
+            brandBlueDark: '#032656',
+            brandPurple: '#7D077D',
+            lightBg: '#F8FAFC',
+            cardBg: '#FFFFFF',
+            textMain: '#2B161B',
+            textMuted: '#453E3E',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-900 via-brandBlueDark to-indigo-950 text-textMain min-h-screen flex flex-col justify-between font-sans">
+
+  <!-- TOP BRANDING HEADER -->
+  <header class="w-full py-6 px-4 sm:px-8 border-b border-white/10 backdrop-blur-md bg-white/5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandBlue to-indigo-500 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-brandBlue/30">
+          A
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-lg text-white tracking-tight">Aptech@Mahanagar, Lko</span>
+          <span class="text-[10px] text-blue-200 uppercase tracking-widest font-semibold">Data Analytics & AI Practice Platform</span>
+        </div>
+      </a>
+      <a href="index.html" class="text-xs text-blue-200 hover:text-white transition-colors font-bold flex items-center gap-1">
+        <span>Guest View</span> &rarr;
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN LOGIN FORM CARD -->
+  <main class="my-auto py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md mx-auto bg-white rounded-3xl border border-gray-100 shadow-2xl p-8 space-y-6 animate-slide-up">
+      
+      <!-- Title Header -->
+      <div class="text-center space-y-2">
+        <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-50 text-brandBlue flex items-center justify-center text-2xl font-bold border border-blue-100">
+          🎓
+        </div>
+        <h2 class="text-2xl font-black text-brandBlueDark">Student Portal Login</h2>
+        <p class="text-xs text-gray-500">Enter your details to access tests, scoreboard, and course labs.</p>
+        <div class="inline-block px-3 py-1 rounded-full bg-brandBlue/10 text-brandBlue text-[11px] font-bold">
+          Aptech@Mahanagar, Lucknow
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="login-form" onsubmit="handleStudentLogin(event)" class="space-y-4">
+        
+        <!-- Name -->
+        <div class="space-y-1">
+          <label class="text-xs font-bold text-gray-700 block">Full Name <span class="text-red-500">*</span></label>
+          <input type="text" id="input-name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs text-brandBlueDark font-semibold outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-all">
+        </div>
+
+        <!-- Email -->
+        <div class="space-y-1">
+          <label class="text-xs font-bold text-gray-700 block">Email Address <span class="text-red-500">*</span></label>
+          <input type="email" id="input-email" required placeholder="rahul@example.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs text-brandBlueDark font-semibold outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-all">
+        </div>
+
+        <!-- Contact Number -->
+        <div class="space-y-1">
+          <label class="text-xs font-bold text-gray-700 block">Contact Number <span class="text-red-500">*</span></label>
+          <input type="tel" id="input-phone" required placeholder="9876543210" pattern="[0-9]{10}" title="Please enter a 10-digit mobile number" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs text-brandBlueDark font-semibold outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-all">
+        </div>
+
+        <!-- Class / Batch -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-gray-700 block">Class / Batch <span class="text-red-500">*</span></label>
+            <input type="text" id="input-class" required placeholder="e.g. Batch A1 / 12th" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs text-brandBlueDark font-semibold outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-all">
+          </div>
+
+          <!-- Subject / Primary Course -->
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-gray-700 block">Course Track <span class="text-red-500">*</span></label>
+            <select id="input-subject" required class="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-xs text-brandBlueDark font-bold outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-all bg-white">
+              <option value="Data Science">Data Science</option>
+              <option value="AI">AI (Artificial Intelligence)</option>
+              <option value="SQL">SQL Database</option>
+              <option value="Python">Python Data Analysis</option>
+              <option value="Excel">Excel Analytics</option>
+              <option value="Statistics">Statistics & Prob</option>
+              <option value="Power BI">Power BI & DAX</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-3 bg-brandBlue hover:bg-brandBlue/90 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-brandBlue/30 hover:scale-[1.02] transform transition-all duration-200 mt-2">
+          Start Learning & Practice →
+        </button>
+
+      </form>
+
+      <div class="text-[10px] text-gray-400 text-center font-medium">
+        &copy; Aptech@Mahanagar, Lko &middot; Data Analyst & AI Student Portal
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="py-4 text-center text-xs text-blue-200/60 font-medium">
+    Aptech Computer Education &middot; Mahanagar Centre, Lucknow, UP
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Pre-fill if existing
+      const user = Storage.get('user');
+      if (user && user.name) {
+        document.getElementById('input-name').value = user.name || '';
+        document.getElementById('input-email').value = user.email || '';
+        document.getElementById('input-phone').value = user.phone || '';
+        document.getElementById('input-class').value = user.class || '';
+        document.getElementById('input-subject').value = user.subject || 'Data Science';
+      }
+    });
+
+    function handleStudentLogin(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('input-name').value.trim();
+      const email = document.getElementById('input-email').value.trim();
+      const phone = document.getElementById('input-phone').value.trim();
+      const studentClass = document.getElementById('input-class').value.trim();
+      const subject = document.getElementById('input-subject').value;
+
+      if (!name || !email || !phone || !studentClass || !subject) {
+        alert("Please fill in all required student registration fields.");
+        return;
+      }
+
+      const existingUser = Storage.get('user') || {};
+      const updatedUser = {
+        ...existingUser,
+        name: name,
+        email: email,
+        phone: phone,
+        class: studentClass,
+        subject: subject,
+        isLoggedIn: true,
+        xp: existingUser.xp || 0,
+        level: existingUser.level || 1
+      };
+
+      Storage.set('user', updatedUser);
+      alert(`Welcome, ${name}! Your student profile for Aptech@Mahanagar, Lko has been registered.`);
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

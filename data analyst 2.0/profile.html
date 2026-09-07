@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Candidate Profile Settings | DataAnalystTheta 2.0</title>
+  <title>Student Profile & Settings | Aptech@Mahanagar, Lko</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -26,7 +26,6 @@
       }
     }
   </script>
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-lightBg text-textMain min-h-screen flex flex-col font-sans pb-24">
@@ -37,10 +36,10 @@
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2 group">
         <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
-          θ
+          A
         </div>
         <span class="font-bold text-xl tracking-tight text-brandBlueDark">
-          DataAnalyst<span class="text-brandBlue">Theta</span>
+          Aptech<span class="text-brandBlue">@Mahanagar, Lko</span>
         </span>
       </a>
 
@@ -50,7 +49,7 @@
         <a href="dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors">Dashboard</a>
         <a href="practice.html" class="nav-link-btn hover:text-brandBlue transition-colors">Practice Portal</a>
         <a href="challenges.html" class="nav-link-btn hover:text-brandBlue transition-colors">Challenges</a>
-        <a href="interview.html" class="nav-link-btn hover:text-brandBlue transition-colors">Interview Prep</a>
+        <a href="interview.html" class="nav-link-btn hover:text-brandBlue transition-colors">Test Paper & Prep</a>
         <a href="analytics.html" class="nav-link-btn hover:text-brandBlue transition-colors">Analytics</a>
         <a href="resources.html" class="nav-link-btn hover:text-brandBlue transition-colors">Free Resources</a>
       </nav>
@@ -58,10 +57,10 @@
       <!-- Right Header Actions -->
       <div class="flex items-center gap-4">
         <a href="dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
-          Workspace Dashboard
+          Dashboard
         </a>
         <a href="profile.html" class="flex items-center gap-2 cursor-pointer">
-          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+          <img src="https://ui-avatars.com/api/?name=Student&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
         </a>
       </div>
     </div>
@@ -72,8 +71,8 @@
     
     <div class="flex items-center justify-between border-b pb-4">
       <div>
-        <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">CANDIDATE SETUP</span>
-        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">⚙ Settings & Achievement Badges</h2>
+        <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">APTECH STUDENT PROFILE</span>
+        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">⚙ Student Registration & Settings</h2>
       </div>
       <a href="dashboard.html" class="text-xs text-textMuted hover:text-brandBlue font-bold">← Return to Dashboard</a>
     </div>
@@ -83,34 +82,73 @@
       <!-- Left Column Settings Forms (Col 7) -->
       <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border shadow-sm space-y-6">
         
-        <div class="space-y-1 border-b pb-4">
-          <h3 class="font-bold text-base text-brandBlueDark">Candidate Profile Settings</h3>
-          <p class="text-xs text-gray-500">Update workspace parameters and play feedbacks sounds options.</p>
+        <div class="flex items-center justify-between border-b pb-4">
+          <div>
+            <h3 class="font-bold text-base text-brandBlueDark">Student Registration Information</h3>
+            <p class="text-xs text-gray-500">Update your contact details, class, and selected course track.</p>
+          </div>
+          <a href="login.html" class="px-3.5 py-1.5 bg-blue-50 border border-brandBlue/30 text-brandBlue hover:bg-brandBlue hover:text-white text-xs font-bold rounded-xl transition-all">
+            Login Screen →
+          </a>
         </div>
 
         <div class="space-y-4">
-          <!-- Name Input -->
-          <div class="space-y-1.5">
-            <label class="text-xs font-bold text-gray-700 block">Candidate Name</label>
-            <input type="text" id="profile-name" class="w-full max-w-md px-4 py-2 border rounded-xl focus:ring-1 focus:ring-brandBlue outline-none text-sm text-brandBlueDark font-medium" placeholder="Enter Name">
+          <!-- Name -->
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-gray-700 block">Student Full Name</label>
+            <input type="text" id="profile-name" class="w-full px-4 py-2 rounded-xl border focus:ring-1 focus:ring-brandBlue outline-none text-xs text-brandBlueDark font-semibold">
+          </div>
+
+          <!-- Email & Phone Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-gray-700 block">Email Address</label>
+              <input type="email" id="profile-email" class="w-full px-4 py-2 rounded-xl border focus:ring-1 focus:ring-brandBlue outline-none text-xs text-brandBlueDark font-semibold">
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-gray-700 block">Contact Phone Number</label>
+              <input type="tel" id="profile-phone" class="w-full px-4 py-2 rounded-xl border focus:ring-1 focus:ring-brandBlue outline-none text-xs text-brandBlueDark font-semibold">
+            </div>
+          </div>
+
+          <!-- Class & Course Track Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-gray-700 block">Class / Batch</label>
+              <input type="text" id="profile-class" class="w-full px-4 py-2 rounded-xl border focus:ring-1 focus:ring-brandBlue outline-none text-xs text-brandBlueDark font-semibold">
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-gray-700 block">Primary Course Track</label>
+              <select id="profile-subject" class="w-full px-3 py-2 rounded-xl border text-xs text-brandBlueDark font-bold outline-none focus:border-brandBlue bg-white">
+                <option value="Data Science">Data Science</option>
+                <option value="AI">AI (Artificial Intelligence)</option>
+                <option value="SQL">SQL Database</option>
+                <option value="Python">Python Analytics</option>
+                <option value="Excel">Excel Analytics</option>
+                <option value="Statistics">Statistics & Prob</option>
+                <option value="Power BI">Power BI & DAX</option>
+              </select>
+            </div>
           </div>
 
           <!-- Synthesizer feedback Toggle -->
           <div class="flex items-center justify-between max-w-md pt-4 border-t">
             <div class="space-y-0.5">
               <span class="text-xs font-bold text-gray-700 block">Synthesized Audio Feedback</span>
-              <span class="text-[10px] text-gray-400 block leading-tight">Play synthesized chime and thud oscillator sounds on submission.</span>
+              <span class="text-[10px] text-gray-400 block leading-tight">Play audio chimes on submission.</span>
             </div>
             <input type="checkbox" id="profile-sound" class="w-4 h-4 rounded text-brandBlue focus:ring-brandBlue cursor-pointer">
           </div>
 
           <!-- Submit Buttons -->
           <div class="pt-6 border-t flex justify-end gap-3">
-            <button onclick="resetCandidateProgress()" class="px-5 py-2.5 bg-red-50 hover:bg-red-100 text-red-500 text-xs font-bold rounded-lg transition-all">
+            <button onclick="resetCandidateProgress()" class="px-5 py-2.5 bg-red-50 hover:bg-red-100 text-red-500 text-xs font-bold rounded-xl transition-all">
               Reset Progress
             </button>
-            <button onclick="saveCandidateSettings()" class="px-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-lg shadow-md transition-all">
-              Save Settings
+            <button onclick="saveCandidateSettings()" class="px-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-xl shadow-md transition-all">
+              Save Student Profile
             </button>
           </div>
         </div>
@@ -120,8 +158,8 @@
       <!-- Right Column Badges Map (Col 5) -->
       <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border shadow-sm space-y-6">
         <div class="space-y-1 border-b pb-4">
-          <h3 class="font-bold text-base text-brandBlueDark">Unlocked Badges Map</h3>
-          <p class="text-xs text-gray-500">Milestone achievements earned during placements testing.</p>
+          <h3 class="font-bold text-base text-brandBlueDark">Unlocked Certificate Badges</h3>
+          <p class="text-xs text-gray-500">Milestone achievements earned during test papers.</p>
         </div>
 
         <div class="grid grid-cols-2 gap-4" id="badges-container">
@@ -133,50 +171,27 @@
 
   </main>
 
-  <!-- FLOATING MAC DOCK -->
-  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl border border-gray-200/50 shadow-2xl flex items-center gap-6 transition-all duration-300 hover:bg-white">
-    <a href="index.html" class="flex flex-col items-center gap-1 group relative">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandBlue to-indigo-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
-        🏠
-      </div>
-      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Home</span>
-    </a>
-    <a href="dashboard.html" class="flex flex-col items-center gap-1 group relative">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-indigo-700 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
-        📊
-      </div>
-      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Dashboard</span>
-    </a>
-    <a href="practice.html" class="flex flex-col items-center gap-1 group relative">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
-        🎯
-      </div>
-      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Practice Portal</span>
-    </a>
-    <a href="resources.html" class="flex flex-col items-center gap-1 group relative">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandPurple to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-200 dock-zoom">
-        📂
-      </div>
-      <span class="absolute -top-9 bg-brandBlueDark text-white text-[9px] font-bold px-2.5 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Resources</span>
-    </a>
-  </div>
-
-  <!-- Include Scripts -->
   <script src="js/storage.js"></script>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const user = Storage.get('user');
+      const user = Storage.get('user') || {};
       const settings = Storage.get('settings', { sound: true });
       
-      document.getElementById('profile-name').value = user.name;
+      document.getElementById('profile-name').value = user.name || '';
+      document.getElementById('profile-email').value = user.email || '';
+      document.getElementById('profile-phone').value = user.phone || '';
+      document.getElementById('profile-class').value = user.class || '';
+      document.getElementById('profile-subject').value = user.subject || 'Data Science';
       document.getElementById('profile-sound').checked = settings.sound;
 
       renderBadgesMap();
     });
 
     const badgeCatalog = {
+      datascience_pioneer: { title: "🔬 DS Pioneer", desc: "Reach 50.0 Data Science LT.", class: "bg-blue-50 text-brandBlue border-blue-200" },
+      ai_architect: { title: "🤖 AI Architect", desc: "Reach 50.0 AI LT score.", class: "bg-purple-50 text-brandPurple border-purple-200" },
       sql_squire: { title: "🛡️ SQL Squire", desc: "Reach 45.0 SQL LT score.", class: "bg-blue-50 text-brandBlue border-blue-200" },
       stats_knight: { title: "⚔️ Stats Knight", desc: "Reach 60.0 Statistics LT.", class: "bg-purple-50 text-brandPurple border-purple-200" },
       data_overlord: { title: "👑 Data Overlord", desc: "Average LT score of 75.0+.", class: "bg-amber-50 text-amber-600 border-amber-200 animate-pulse" },
@@ -215,31 +230,40 @@
 
     function saveCandidateSettings() {
       const name = document.getElementById('profile-name').value.trim();
+      const email = document.getElementById('profile-email').value.trim();
+      const phone = document.getElementById('profile-phone').value.trim();
+      const studentClass = document.getElementById('profile-class').value.trim();
+      const subject = document.getElementById('profile-subject').value;
       const sound = document.getElementById('profile-sound').checked;
 
-      if (!name) {
-        alert("Please enter a valid candidate name.");
+      if (!name || !email || !phone || !studentClass) {
+        alert("Please complete all student profile fields.");
         return;
       }
 
-      const user = Storage.get('user');
+      const user = Storage.get('user') || {};
       user.name = name;
+      user.email = email;
+      user.phone = phone;
+      user.class = studentClass;
+      user.subject = subject;
+      user.isLoggedIn = true;
       Storage.set('user', user);
 
-      const settings = Storage.get('settings');
+      const settings = Storage.get('settings') || {};
       settings.sound = sound;
       Storage.set('settings', settings);
 
-      alert("Settings saved successfully!");
+      alert("Student profile updated successfully!");
       window.location.reload();
     }
 
     function resetCandidateProgress() {
-      if (confirm("WARNING: Are you sure you want to clear your attempts history and reset all mastery scores back to 30.0%? This action is irreversible.")) {
+      if (confirm("WARNING: Are you sure you want to clear attempts history and reset scores?")) {
         Storage.clear();
         Storage.init();
         alert("Workspace reset complete!");
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
       }
     }
   </script>

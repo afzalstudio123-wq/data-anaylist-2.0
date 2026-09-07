@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interview Prep Simulator | DataAnalystTheta 2.0</title>
+  <title>25-Question Test Paper & Assessment | Aptech@Mahanagar, Lko</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -39,10 +39,10 @@
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2 group">
         <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brandBlue to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brandBlue/20 group-hover:scale-105 transition-transform">
-          θ
+          A
         </div>
         <span class="font-bold text-xl tracking-tight text-brandBlueDark">
-          DataAnalyst<span class="text-brandBlue">Theta</span>
+          Aptech<span class="text-brandBlue">@Mahanagar, Lko</span>
         </span>
       </a>
 
@@ -52,7 +52,7 @@
         <a href="dashboard.html" class="nav-link-btn hover:text-brandBlue transition-colors">Dashboard</a>
         <a href="practice.html" class="nav-link-btn hover:text-brandBlue transition-colors">Practice Portal</a>
         <a href="challenges.html" class="nav-link-btn hover:text-brandBlue transition-colors">Challenges</a>
-        <a href="interview.html" class="nav-link-btn text-brandBlue border-b-2 border-brandBlue">Interview Prep</a>
+        <a href="interview.html" class="nav-link-btn text-brandBlue border-b-2 border-brandBlue">Test Paper & Prep</a>
         <a href="analytics.html" class="nav-link-btn hover:text-brandBlue transition-colors">Analytics</a>
         <a href="resources.html" class="nav-link-btn hover:text-brandBlue transition-colors">Free Resources</a>
       </nav>
@@ -60,10 +60,10 @@
       <!-- Actions -->
       <div class="flex items-center gap-4">
         <a href="dashboard.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-white bg-brandBlue hover:bg-brandBlue/90 rounded-full transition-all shadow-md shadow-brandBlue/10 hover:shadow-lg">
-          Workspace Dashboard
+          Dashboard
         </a>
-        <a href="profile.html" class="flex items-center gap-2 cursor-pointer">
-          <img src="https://ui-avatars.com/api/?name=Data+Analyst&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
+        <a href="login.html" class="flex items-center gap-2 cursor-pointer">
+          <img src="https://ui-avatars.com/api/?name=Student&background=0693E3&color=ffffff&bold=true" class="w-8 h-8 rounded-full border border-gray-200" alt="Avatar">
         </a>
       </div>
     </div>
@@ -74,44 +74,72 @@
     
     <div class="flex items-center justify-between border-b pb-4">
       <div>
-        <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">TECHNICAL EVALUATION</span>
-        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">🎓 Placements Interview Prep</h2>
+        <span class="text-xs text-brandBlue font-bold uppercase tracking-wider block">APTECH STUDENT ASSESSMENT</span>
+        <h2 class="text-xl sm:text-2xl font-black text-brandBlueDark">📝 25-Question Test Paper & Evaluation</h2>
       </div>
       <a href="practice.html" class="text-xs text-textMuted hover:text-brandBlue font-bold">← Return to Hub</a>
     </div>
 
     <!-- 1. EXAM CONFIGURATION PRE-VIEW -->
-    <div id="view-setup" class="bg-white p-6 sm:p-8 rounded-3xl border shadow-sm max-w-2xl mx-auto space-y-6 animate-fade-in">
+    <div id="view-setup" class="bg-white p-6 sm:p-8 rounded-3xl border shadow-sm max-w-3xl mx-auto space-y-6 animate-fade-in">
+      
+      <!-- Student Profile Card Header -->
+      <div class="bg-blue-50/70 border border-blue-100 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="space-y-0.5">
+          <span class="text-[10px] text-brandBlue font-bold uppercase tracking-wider block">Candidate Identity</span>
+          <h4 class="font-black text-base text-brandBlueDark" id="setup-student-name">Student Name</h4>
+          <p class="text-xs text-gray-500 font-medium" id="setup-student-info">Class: Batch A1 &middot; Track: Data Science</p>
+        </div>
+        <a href="login.html" class="px-4 py-2 border border-brandBlue text-brandBlue hover:bg-brandBlue hover:text-white text-xs font-bold rounded-xl transition-all">
+          Change Student Profile
+        </a>
+      </div>
+
       <div class="text-center space-y-2">
-        <span class="text-2xl">⏳</span>
-        <h3 class="font-black text-xl text-brandBlueDark">Placements Testing Engine</h3>
+        <span class="text-3xl">⏱</span>
+        <h3 class="font-black text-xl text-brandBlueDark">Aptech@Mahanagar 25-Question Test Paper</h3>
         <p class="text-xs text-gray-500 max-w-md mx-auto">
-          Start a timed, randomized mock test covering SQL query constraints, Excel cell index matching, Pandas functions, and probability matrices.
+          Test includes MCQs and Fill-in-the-blanks questions categorized into Easy, Moderate, and Hard stages.
         </p>
+      </div>
+
+      <!-- Select Course Dropdown for Test -->
+      <div class="space-y-1.5 max-w-md mx-auto">
+        <label class="text-xs font-bold text-gray-700 block">Select Course for Test Paper:</label>
+        <select id="test-course-select" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-xs text-brandBlueDark font-bold outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue bg-white">
+          <option value="All">All Courses Combined (25 Questions)</option>
+          <option value="Data Science">Data Science (25 Questions)</option>
+          <option value="AI">AI (Artificial Intelligence) (25 Questions)</option>
+          <option value="SQL">SQL Database (25 Questions)</option>
+          <option value="Python">Python Analytics (25 Questions)</option>
+          <option value="Excel">Excel Analytics (25 Questions)</option>
+          <option value="Statistics">Statistics & Probability (25 Questions)</option>
+          <option value="Power BI">Power BI & DAX (25 Questions)</option>
+        </select>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
         <!-- Mode 1 -->
         <div class="border p-5 rounded-2xl flex flex-col justify-between hover:border-brandBlue/35 transition-all">
           <div>
-            <span class="px-2 py-0.5 rounded bg-blue-50 text-brandBlue text-[9px] font-bold uppercase">Basic</span>
-            <h4 class="font-bold text-sm text-brandBlueDark mt-2">Quick Skill Test</h4>
-            <p class="text-xs text-gray-500 mt-2">5 random MCQs &middot; 5 Minutes limit. Quick calibration.</p>
+            <span class="px-2 py-0.5 rounded bg-blue-50 text-brandBlue text-[9px] font-bold uppercase">Short Assessment</span>
+            <h4 class="font-bold text-sm text-brandBlueDark mt-2">Quick 5-Question Check</h4>
+            <p class="text-xs text-gray-500 mt-2">5 Questions &middot; 5 Minutes. MCQs + Fill-ups.</p>
           </div>
-          <button onclick="startExam(5, 5)" class="w-full mt-6 py-2 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-lg shadow-sm transition-all">
-            Start Test
+          <button onclick="startExam(5, 5)" class="w-full mt-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-xl shadow-sm transition-all">
+            Start 5-Q Test
           </button>
         </div>
 
         <!-- Mode 2 -->
-        <div class="border p-5 rounded-2xl flex flex-col justify-between hover:border-brandPurple/35 transition-all">
+        <div class="border p-5 rounded-2xl flex flex-col justify-between hover:border-brandPurple/35 transition-all bg-purple-50/20">
           <div>
-            <span class="px-2 py-0.5 rounded bg-purple-50 text-brandPurple text-[9px] font-bold uppercase">Pro Placement</span>
-            <h4 class="font-bold text-sm text-brandBlueDark mt-2">Full Placement Round</h4>
-            <p class="text-xs text-gray-500 mt-2">15 random MCQs &middot; 15 Minutes limit. Complete assessment.</p>
+            <span class="px-2 py-0.5 rounded bg-purple-100 text-brandPurple text-[9px] font-bold uppercase">Standard Test Paper</span>
+            <h4 class="font-bold text-sm text-brandBlueDark mt-2">Full 25-Question Test</h4>
+            <p class="text-xs text-gray-500 mt-2">25 Questions &middot; 25 Minutes. Easy, Moderate, Hard levels.</p>
           </div>
-          <button onclick="startExam(15, 15)" class="w-full mt-6 py-2 bg-brandPurple hover:bg-brandPurple/90 text-white text-xs font-bold rounded-lg shadow-sm transition-all">
-            Start Placement Exam
+          <button onclick="startExam(25, 25)" class="w-full mt-6 py-2.5 bg-brandPurple hover:bg-brandPurple/90 text-white text-xs font-bold rounded-xl shadow-md transition-all">
+            Start 25-Q Test Paper →
           </button>
         </div>
       </div>
@@ -123,27 +151,30 @@
       <!-- Top header -->
       <div class="bg-brandBlueDark text-white px-6 py-4 flex items-center justify-between">
         <div class="space-y-1">
-          <span class="text-[10px] text-brandBlue font-extrabold uppercase tracking-wider block">ACTIVE PLACEMENT TEST</span>
-          <h4 class="font-bold text-sm" id="exam-subject-topic">SQL JOINs & Table Merges</h4>
+          <span class="text-[10px] text-brandBlue font-extrabold uppercase tracking-wider block">Aptech@Mahanagar &middot; Test Paper</span>
+          <h4 class="font-bold text-sm" id="exam-subject-topic">Data Science &middot; Machine Learning</h4>
         </div>
         <div class="flex items-center gap-3">
+          <span class="text-[10px] text-white bg-brandBlue px-2 py-0.5 rounded font-bold uppercase" id="exam-q-difficulty">Moderate</span>
           <div class="flex items-center gap-1.5 text-xs font-mono font-bold text-brandPurple bg-white px-3.5 py-1.5 rounded-full border border-gray-150 timer-active">
-            ⏱ <span id="exam-timer">15:00</span>
+            ⏱ <span id="exam-timer">25:00</span>
           </div>
         </div>
       </div>
 
       <!-- Main question area -->
       <div class="p-6 sm:p-8 flex-grow space-y-6">
-        <div class="text-xs text-gray-400 font-bold uppercase tracking-wider" id="exam-progress-tag">
-          Question 1 of 15
+        <div class="flex items-center justify-between text-xs text-gray-400 font-bold uppercase tracking-wider">
+          <span id="exam-progress-tag">Question 1 of 25</span>
+          <span id="exam-q-type" class="text-brandPurple bg-purple-50 px-2 py-0.5 rounded border border-purple-100 font-mono">MCQ</span>
         </div>
         
-        <div class="text-base font-bold text-brandBlueDark leading-relaxed font-mono" id="exam-question-body">
-          Loading query body...
+        <div class="text-base font-bold text-brandBlueDark leading-relaxed font-mono whitespace-pre-line" id="exam-question-body">
+          Loading question body...
         </div>
 
-        <div class="grid grid-cols-1 gap-3.5" id="exam-options-container">
+        <!-- Options Container (MCQs or Fill-up Input) -->
+        <div class="space-y-3.5" id="exam-options-container">
           <!-- Loaded dynamically -->
         </div>
       </div>
@@ -168,10 +199,14 @@
       <div class="text-center space-y-2 border-b pb-6">
         <span class="text-3xl" id="result-emoji">🏆</span>
         <h3 class="font-black text-2xl text-brandBlueDark" id="result-heading">Assessment Completed</h3>
-        <p class="text-xs text-gray-500 max-w-md mx-auto" id="result-sub">You have finished the placement mock round. Review your answers analysis below.</p>
+        <p class="text-xs text-gray-500 max-w-md mx-auto" id="result-sub">You have finished the placement test paper. Review your answers analysis below.</p>
         
         <div class="flex items-center justify-center gap-8 pt-4">
           <div class="text-center">
+            <span class="text-xs text-gray-400 block font-bold">STUDENT NAME</span>
+            <span class="text-base font-black text-brandBlueDark" id="result-student-name">Student Name</span>
+          </div>
+          <div class="text-center border-l pl-8">
             <span class="text-xs text-gray-400 block font-bold">ACCURACY</span>
             <span class="text-2xl font-black text-brandBlue" id="result-accuracy">78%</span>
           </div>
@@ -190,48 +225,69 @@
         </div>
       </div>
 
-      <div class="flex justify-end pt-4 border-t">
-        <a href="dashboard.html" class="px-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-lg shadow-sm transition-all">
-          Return to Dashboard
+      <div class="flex justify-end gap-4 pt-4 border-t">
+        <a href="dashboard.html" class="px-6 py-2.5 bg-brandBlue hover:bg-brandBlue/90 text-white text-xs font-bold rounded-xl shadow-sm transition-all">
+          View Scoreboard & Dashboard →
         </a>
       </div>
     </div>
 
   </main>
 
-  <!-- Include Scripts -->
   <script src="js/storage.js"></script>
   <script src="js/data.js"></script>
   <script src="js/practice-engine.js"></script>
+  <script src="js/app.js"></script>
   <script>
     let examPool = [];
-    let examAnswers = []; // holds user selected indices
+    let examAnswers = []; // holds user selected index or fillup string
     let activeExamIdx = 0;
-    
     let timerInterval = null;
     let secondsLeft = 0;
 
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = Storage.get('user');
+      if (user && user.name) {
+        document.getElementById('setup-student-name').innerText = user.name;
+        document.getElementById('setup-student-info').innerText = `Class: ${user.class || 'Regular'} · Course Track: ${user.subject || 'Data Analytics'}`;
+      } else {
+        document.getElementById('setup-student-name').innerText = "Guest Student (Please Login)";
+        document.getElementById('setup-student-info').innerText = "Click Change Profile to save your name for the scoreboard";
+      }
+    });
+
     function startExam(questionCount, minutesLimit) {
-      // Pick random questions from data.js pool
-      const pool = [...questionPool];
+      const selectedCourse = document.getElementById('test-course-select').value;
+      
+      let filteredPool = (selectedCourse === 'All') 
+        ? [...questionPool] 
+        : questionPool.filter(q => q.subject.toLowerCase() === selectedCourse.toLowerCase());
+
+      if (filteredPool.length === 0) {
+        filteredPool = [...questionPool];
+      }
+
+      // Generate pool (repeat or shuffle if required count is higher)
       examPool = [];
-      while (examPool.length < questionCount && pool.length > 0) {
-        const randIdx = Math.floor(Math.random() * pool.length);
-        examPool.push(pool.splice(randIdx, 1)[0]);
+      const poolCopy = [...filteredPool];
+      
+      while (examPool.length < questionCount) {
+        if (poolCopy.length === 0) poolCopy.push(...filteredPool);
+        const randIdx = Math.floor(Math.random() * poolCopy.length);
+        examPool.push(poolCopy.splice(randIdx, 1)[0]);
       }
 
       examAnswers = new Array(questionCount).fill(null);
       activeExamIdx = 0;
 
-      // Hide setup show exam
       document.getElementById('view-setup').classList.add('hidden');
       document.getElementById('view-exam').classList.remove('hidden');
 
       loadExamQuestion();
 
-      // Start timer
       secondsLeft = minutesLimit * 60;
       updateTimerDisplay();
+      if (timerInterval) clearInterval(timerInterval);
       timerInterval = setInterval(() => {
         secondsLeft--;
         updateTimerDisplay();
@@ -248,38 +304,59 @@
       document.getElementById('exam-timer').innerText = `${mins}:${secs}`;
     }
 
+    function saveCurrentAnswerInput() {
+      const q = examPool[activeExamIdx];
+      if (!q) return;
+      if (q.type === 'fillup') {
+        const input = document.getElementById('exam-fillup-input');
+        if (input) {
+          examAnswers[activeExamIdx] = input.value.trim();
+        }
+      }
+    }
+
     function loadExamQuestion() {
       const q = examPool[activeExamIdx];
       if (!q) return;
 
       document.getElementById('exam-progress-tag').innerText = `Question ${activeExamIdx + 1} of ${examPool.length}`;
-      document.getElementById('exam-subject-topic').innerText = `${q.subject} &middot; ${q.topic}`;
+      document.getElementById('exam-subject-topic').innerText = `${q.subject} · ${q.topic}`;
+      document.getElementById('exam-q-difficulty').innerText = q.difficulty || 'Moderate';
+      document.getElementById('exam-q-type').innerText = (q.type === 'fillup') ? 'Fill-in-the-blank' : 'Multiple Choice';
       document.getElementById('exam-question-body').innerText = q.question;
 
-      // Render options
       const optContainer = document.getElementById('exam-options-container');
       optContainer.innerHTML = '';
-      
-      q.options.forEach((opt, idx) => {
-        const letter = String.fromCharCode(65 + idx);
-        const div = document.createElement('div');
-        div.className = 'option-btn border p-4 rounded-xl cursor-pointer flex items-center gap-3 bg-white hover:bg-gray-50';
-        if (examAnswers[activeExamIdx] === idx) {
-          div.classList.add('option-btn-selected');
-        }
-        div.onclick = () => selectExamOption(idx);
-        div.innerHTML = `
-          <div class="option-badge w-6 h-6 rounded-full border flex items-center justify-center font-bold text-xs text-gray-500 bg-white">${letter}</div>
-          <span class="text-xs font-semibold text-textMain">${opt}</span>
-        `;
-        optContainer.appendChild(div);
-      });
 
-      // Update nav buttons disabled state
+      if (q.type === 'fillup') {
+        const savedVal = examAnswers[activeExamIdx] || '';
+        optContainer.innerHTML = `
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-gray-500 block">Type your answer in the text box below:</label>
+            <input type="text" id="exam-fillup-input" value="${savedVal}" placeholder="Type your answer..." oninput="saveCurrentAnswerInput()" class="w-full p-4 font-mono text-xs border rounded-xl bg-gray-50 focus:bg-white focus:ring-1 focus:ring-brandBlue outline-none text-brandBlueDark font-bold">
+          </div>
+        `;
+      } else {
+        q.options.forEach((opt, idx) => {
+          const letter = String.fromCharCode(65 + idx);
+          const div = document.createElement('div');
+          div.className = 'option-btn border p-4 rounded-xl cursor-pointer flex items-center gap-3 bg-white hover:bg-gray-50';
+          if (examAnswers[activeExamIdx] === idx) {
+            div.classList.add('option-btn-selected');
+          }
+          div.onclick = () => selectExamOption(idx);
+          div.innerHTML = `
+            <div class="option-badge w-6 h-6 rounded-full border flex items-center justify-center font-bold text-xs text-gray-500 bg-white">${letter}</div>
+            <span class="text-xs font-semibold text-textMain">${opt}</span>
+          `;
+          optContainer.appendChild(div);
+        });
+      }
+
       document.getElementById('btn-exam-prev').disabled = (activeExamIdx === 0);
       const nextBtn = document.getElementById('btn-exam-next');
-      if (activeQuestionIsLast()) {
-        nextBtn.innerText = "Finish Exam";
+      if (activeExamIdx === examPool.length - 1) {
+        nextBtn.innerText = "Submit Test Paper";
         nextBtn.onclick = () => finishExam(false);
       } else {
         nextBtn.innerText = "Next Question →";
@@ -287,17 +364,15 @@
       }
     }
 
-    function activeQuestionIsLast() {
-      return activeExamIdx === examPool.length - 1;
-    }
-
     function selectExamOption(idx) {
       examAnswers[activeExamIdx] = idx;
       document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('option-btn-selected'));
-      document.getElementById('exam-options-container').children[idx].classList.add('option-btn-selected');
+      const chosen = document.getElementById('exam-options-container').children[idx];
+      if (chosen) chosen.classList.add('option-btn-selected');
     }
 
     function nextExamQuestion() {
+      saveCurrentAnswerInput();
       if (activeExamIdx + 1 < examPool.length) {
         activeExamIdx++;
         loadExamQuestion();
@@ -305,6 +380,7 @@
     }
 
     function prevExamQuestion() {
+      saveCurrentAnswerInput();
       if (activeExamIdx - 1 >= 0) {
         activeExamIdx--;
         loadExamQuestion();
@@ -312,87 +388,88 @@
     }
 
     function submitExamEarly() {
-      if (confirm("Are you sure you want to end the assessment test early?")) {
+      saveCurrentAnswerInput();
+      if (confirm("Are you sure you want to end your test paper early?")) {
         clearInterval(timerInterval);
         finishExam(false);
       }
     }
 
     function finishExam(timeExpired = false) {
+      saveCurrentAnswerInput();
       clearInterval(timerInterval);
       document.getElementById('view-exam').classList.add('hidden');
       document.getElementById('view-result').classList.remove('hidden');
 
-      if (timeExpired) {
-        alert("Time expired! Submitting your answers automatically.");
-      }
+      if (timeExpired) alert("Time expired! Submitting test paper answers.");
 
-      // Compute statistics
       let correctCount = 0;
       examPool.forEach((q, idx) => {
-        if (examAnswers[idx] === q.answer) {
-          correctCount++;
+        const userAns = examAnswers[idx];
+        if (q.type === 'fillup') {
+          const val = (userAns || '').toString().trim().toLowerCase();
+          const valid = Array.isArray(q.fillAnswer) ? q.fillAnswer.map(a => a.toLowerCase()) : [q.fillAnswer.toLowerCase()];
+          if (valid.includes(val)) correctCount++;
+        } else {
+          if (userAns === q.answer) correctCount++;
         }
       });
 
       const accuracy = Math.round((correctCount / examPool.length) * 100);
-      const passed = accuracy >= 70;
-
-      // Play synthesized audio
+      const passed = accuracy >= 60;
       playFeedbackSound(passed);
 
-      // Trigger Confetti
       if (passed && window.confetti) {
-        confetti({
-          particleCount: 150,
-          spread: 80,
-          origin: { y: 0.6 }
-        });
+        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
       }
 
-      // Award XP
-      const xpReward = passed ? 30 : 10;
-      const user = Storage.get('user');
-      user.xp += xpReward;
+      const xpReward = passed ? 50 : 15;
+      const user = Storage.get('user') || {};
+      user.xp = (user.xp || 0) + xpReward;
+      user.level = Math.floor(user.xp / 100) + 1;
       Storage.set('user', user);
 
-      // Record attempts for weak area calculations
-      const attempts = Storage.get('attempts');
+      const attempts = Storage.get('attempts', []);
       examPool.forEach((q, idx) => {
-        attempts.push({ id: q.id, correct: (examAnswers[idx] === q.answer), subject: q.subject, topic: q.topic, time: 20 });
+        attempts.push({ id: q.id, correct: (q.type==='fillup' ? (Array.isArray(q.fillAnswer)?q.fillAnswer.map(a=>a.toLowerCase()).includes((examAnswers[idx]||'').toLowerCase()):(examAnswers[idx]||'').toLowerCase()===q.fillAnswer.toLowerCase()) : examAnswers[idx]===q.answer), subject: q.subject, topic: q.topic, time: 20 });
       });
       Storage.set('attempts', attempts);
 
-      // Render score summary values
+      document.getElementById('result-student-name').innerText = user.name || 'Candidate';
       document.getElementById('result-accuracy').innerText = `${accuracy}%`;
       document.getElementById('result-xp').innerText = `+${xpReward} XP`;
-      document.getElementById('result-heading').innerText = passed ? "Assessment Completed!" : "Exam Completed";
+      document.getElementById('result-heading').innerText = passed ? "Test Passed!" : "Test Paper Completed";
       document.getElementById('result-sub').innerText = passed 
-        ? "Excellent work! You passed the mock technical evaluation test." 
-        : "Keep practicing. Read the explanation logs to master weak topics.";
-      document.getElementById('result-emoji').innerText = passed ? "🏆" : "📝";
+        ? "Great job! Your score has been updated on the Aptech@Mahanagar Scoreboard." 
+        : "Review the question solutions below to improve your score.";
 
-      // Render solutions logs
       const solList = document.getElementById('result-solutions-list');
       solList.innerHTML = '';
       
       examPool.forEach((q, idx) => {
-        const userSel = examAnswers[idx];
-        const isCorrect = (userSel === q.answer);
-        
+        const userAns = examAnswers[idx];
+        let isCorrect = false;
+        if (q.type === 'fillup') {
+          const val = (userAns || '').toString().trim().toLowerCase();
+          const valid = Array.isArray(q.fillAnswer) ? q.fillAnswer.map(a => a.toLowerCase()) : [q.fillAnswer.toLowerCase()];
+          isCorrect = valid.includes(val);
+        } else {
+          isCorrect = (userAns === q.answer);
+        }
+
         const card = document.createElement('div');
         card.className = `p-4 rounded-xl border text-xs leading-relaxed space-y-2 ${isCorrect ? 'bg-emerald-50/20 border-emerald-200' : 'bg-red-50/20 border-red-200'}`;
         
         card.innerHTML = `
           <div class="flex items-center justify-between font-bold">
-            <span class="text-brandBlueDark font-mono">${q.subject} &middot; ${q.topic}</span>
+            <span class="text-brandBlueDark font-mono">${q.subject} · ${q.topic}</span>
             <span class="${isCorrect ? 'text-emerald-600' : 'text-red-500'} font-bold">
-              ${isCorrect ? '✓ Correct' : `✗ Incorrect (Selected: ${userSel !== null ? String.fromCharCode(65 + userSel) : 'None'})`}
+              ${isCorrect ? '✓ Correct' : `✗ Incorrect (Your Answer: ${userAns !== null && userAns !== undefined ? (q.type==='fillup'? userAns : String.fromCharCode(65 + userAns)) : 'None'})`}
             </span>
           </div>
           <p class="font-mono text-gray-700 font-semibold">${q.question}</p>
           <details class="cursor-pointer select-none">
-            <summary class="font-bold text-[10px] text-gray-500 hover:text-brandBlue">Show Explanation & Expected Answer</summary>
+            <summary class="font-bold text-[10px] text-gray-500 hover:text-brandBlue">Show Explanation & Solution</summary>
             <p class="mt-2 text-[10px] text-gray-600 font-mono bg-white p-2.5 rounded border leading-relaxed border-gray-100">${q.explanation}</p>
           </details>
         `;

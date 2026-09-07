@@ -36,7 +36,16 @@ const Storage = {
   // Auto initialize defaults
   init() {
     if (!this.get('user')) {
-      this.set('user', { name: 'Candidate', xp: 0, level: 1 });
+      this.set('user', { 
+        name: '', 
+        email: '', 
+        phone: '', 
+        class: '', 
+        subject: 'SQL', 
+        xp: 0, 
+        level: 1, 
+        isLoggedIn: false 
+      });
     }
     if (!this.get('mastery')) {
       this.set('mastery', {
@@ -44,7 +53,9 @@ const Storage = {
         excel: 30.0,
         python: 30.0,
         statistics: 30.0,
-        powerbi: 30.0
+        powerbi: 30.0,
+        datascience: 30.0,
+        ai: 30.0
       });
     }
     if (!this.get('streak')) {
